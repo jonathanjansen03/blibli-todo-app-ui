@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       host: 'localhost',
-      port: 8080,
+      port: 3000,
       proxy: noMock ? commonProxy : null
     },
     build: {
@@ -58,12 +58,12 @@ export default defineConfig(({ mode }) => {
         output: {
           chunkFileNames: 'static/js/[name].[hash].js',
           entryFileNames: 'static/[name].js',
-          
+
           assetFileNames: ({ name }) => {
             if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
               return 'static/img/[name].[hash][extname]'
             }
-            
+
             if (/\.css$/.test(name ?? '')) {
               if(name === 'style.css') return 'static/index.css'
               return 'static/[name].[hash][extname]'
@@ -72,7 +72,7 @@ export default defineConfig(({ mode }) => {
             if (/\.(ttf|woff2)$/.test(name ?? '')) {
               return 'static/fonts/[name]-[hash][extname]'
             }
-    
+
             // default value
             // ref: https://rollupjs.org/guide/en/#outputassetfilenames
             return 'static/[name].[hash][extname]'
