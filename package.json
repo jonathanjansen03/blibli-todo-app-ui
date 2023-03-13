@@ -1,0 +1,51 @@
+{
+  "name": "blibli-todo-app-ui",
+  "version": "1.0.0",
+  "description": "",
+  "author": "PT GLOBAL DIGITAL NIAGA (Blibli.com)",
+  "scripts": {
+    "dev": "vite --host",
+    "dev-nomock": "cross-env VITE_NOMOCK=true vite --host",
+    "build": "cross-env VITE_ENV=production vite build",
+    "preview": "vite preview --port 4173",
+    "unit": "vitest run && npm run posttest",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "package-snapshot": "npm run build && dev-tools package:snapshot && dev-tools dockerize:snapshot",
+    "package-release": "npm run build && dev-tools package:release && dev-tools dockerize:release",
+    "posttest": "dev-tools post-test",
+    "integration:run-docker": "blibli-integration docker:run",
+    "integration:stop-docker": "blibli-integration docker:stop",
+    "integration:base": "blibli-integration base",
+    "integration:updateSnapshot": "blibli-integration updateSnapshot",
+    "integration:report": "blibli-integration report",
+    "integration:run": "blibli-integration run",
+    "integration": "blibli-integration test:ci",
+    "test": "npm run unit && npm run integration"
+  },
+  "dependencies": {
+    "@blibli/dls": "^2.32.0",
+    "vue": "^2.7.8",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@blibli/dev-tools": "^0.4.4",
+    "@blibli/integration-test-tools": "1.7.8",
+    "@vitejs/plugin-legacy": "^2.0.1",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "@vitest/coverage-istanbul": "^0.27.2",
+    "@vue/test-utils": "^1.3.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "jsdom": "^20.0.0",
+    "miragejs": "^0.1.45",
+    "sass": "^1.54.5",
+    "terser": "^5.14.2",
+    "vite": "^3.2.4",
+    "vite-plugin-istanbul": "^3.0.1",
+    "vitest": "^0.27.2",
+    "vue-template-compiler": "^2.7.8"
+  }
+}
