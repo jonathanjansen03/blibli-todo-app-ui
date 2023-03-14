@@ -1,13 +1,11 @@
 <template>
   <div class="home blu">
     <div class="card">
-      <h1>This is a Home page</h1>
-      <button type="button" @click="setCount" id="countButton">Count is {{ counter }}</button>
-      <ApiCall/>
-      <p class="text">
-        Edit
-        <code>components/HelloWorld.vue</code> to test HMR
-      </p>
+      <h1>Welcome to Toko Buku Blibli!</h1>
+<!--      <ApiCall/>-->
+      <router-link to="/buy-books" class="link-button">
+        <BliButton color="secondary" size="large">Buy Books Now</BliButton>
+      </router-link>
     </div>
   </div>
 </template>
@@ -20,57 +18,36 @@
 .home {
   display: flex;
   align-items: center;
+  color: $blu-gray-light;
   flex-direction: column;
-  color: #888888;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .card {
   font-size: 0.87em;
   text-align: center;
 
-  .text {
-    font-size: 1em;
-    margin-top: 7%;
-  }
-
   h1 {
-    font-size: 2.72em;
+    font-size: 3em;
     color: $blu-gray-light-3;
   }
 
   button {
-    margin-top: 10%;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1.2em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    color: rgba(255, 255, 255, 0.87);
-  }
-
-  button:hover {
-    border-color: #646cff;
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  header{
-    margin-bottom: 5%;
+  header { margin-bottom: 5%; }
+
+  .card {
+    h1 { font-size: 2.75em; }
   }
 }
 
 @media (min-width: 1024px) {
   .home {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
   }

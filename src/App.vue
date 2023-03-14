@@ -7,8 +7,8 @@
         </div>
         <div class="nav-links">
           <router-link to="/" class="link-button">Home</router-link>
-          <router-link to="/manage-books" class="link-button">Manage Books</router-link>
           <router-link to="/buy-books" class="link-button">Buy Books</router-link>
+          <router-link to="/manage-books" class="link-button">Manage Books</router-link>
           <router-link to="/about" class="link-button">About</router-link>
           <div class="x-btn" @click="toggleNavbar">x</div>
         </div>
@@ -41,8 +41,9 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  padding: 3rem 2rem 1rem;
   text-align: center;
+  width: 100%;
 
   & .logo-wrapper { width: 15rem; }
 
@@ -95,7 +96,7 @@ p {
   header { margin-bottom: 5%; }
 
   nav {
-    padding: 2rem 2rem 1rem;
+
 
     & .nav-links {
       display: none;
@@ -145,8 +146,6 @@ p {
 @media (min-width: 1024px) {
   #blibliApp { padding: 0 14rem; }
 
-  nav {
-    padding: 2rem 0 1rem;
-  }
+  nav { padding: 2rem 0 1rem; }
 }
 </style>

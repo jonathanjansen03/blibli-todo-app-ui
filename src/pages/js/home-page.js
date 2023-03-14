@@ -1,10 +1,12 @@
 import { mapGetters, mapActions } from 'vuex'
 import ApiCall from '@/components/ApiCall.vue'
+import { BliButton } from "@blibli/dls/dist/components/button";
 
 export default {
   name: 'HomePage',
   components: {
-    ApiCall
+    ApiCall,
+    BliButton
   },
   mounted () {
     this.counter = this.getCounter
