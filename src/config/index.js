@@ -6,7 +6,9 @@ const app = {
 }
 const pages = {
   home: '/',
-  about: '/about'
+  about: '/about',
+  buyBooks: '/buy-books',
+  manageBooks: '/manage-books'
 }
 
 const api = {

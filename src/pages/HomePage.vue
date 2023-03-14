@@ -12,30 +12,33 @@
   </div>
 </template>
 
-<script src="./js/home-page"></script>
+<script src="./js/home-page.js"></script>
 
 <style lang="scss" scoped>
-@import '~@blibli/blue-tokens/dist/blue-tokens.scss';
+@import '~@blibli/blue-tokens/dist/blue-tokens';
 
-.home{
+.home {
   display: flex;
   align-items: center;
   flex-direction: column;
   color: #888888;
 }
 
-.card{
+.card {
   font-size: 0.87em;
   text-align: center;
-  .text{
+
+  .text {
     font-size: 1em;
     margin-top: 7%;
   }
-  h1{
+
+  h1 {
     font-size: 2.72em;
     color: $blu-gray-light-3;
   }
-  button{
+
+  button {
     margin-top: 10%;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -48,9 +51,11 @@
     transition: border-color 0.25s;
     color: rgba(255, 255, 255, 0.87);
   }
+
   button:hover {
     border-color: #646cff;
   }
+
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
