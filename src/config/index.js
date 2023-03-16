@@ -1,7 +1,16 @@
 const app = {
   routerName: {
     home: 'home',
+    manageBooks: 'manageBooks',
+    buyBooks: 'buyBooks',
     about: 'about'
+  },
+  title: {
+    base: 'Toko Buku Blibli',
+    home: 'Home',
+    manageBooks: 'Manage Books',
+    buyBooks: 'Buy Books',
+    about: 'About'
   }
 }
 const pages = {

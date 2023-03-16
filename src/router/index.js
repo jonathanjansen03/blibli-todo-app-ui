@@ -7,23 +7,27 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: pages.home,
-    name: app.home,
-    component: () => import('../pages/HomePage.vue')
+    name: app.routerName.home,
+    component: () => import('../pages/HomePage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.home}` }
   },
   {
     path: pages.manageBooks,
-    name: app.manageBooks,
-    component: () => import('../pages/ManageBooksPage.vue')
+    name: app.routerName.manageBooks,
+    component: () => import('../pages/ManageBooksPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.manageBooks}` }
   },
   {
     path: pages.buyBooks,
-    name: app.buyBooks,
-    component: () => import('../pages/BuyBooksPage.vue')
+    name: app.routerName.buyBooks,
+    component: () => import('../pages/BuyBooksPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.buyBooks}` }
   },
   {
     path: pages.about,
-    name: app.about,
-    component: () => import('../pages/AboutPage.vue')
+    name: app.routerName.about,
+    component: () => import('../pages/AboutPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.about}` }
   }
 ]
 
