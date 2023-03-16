@@ -1,7 +1,7 @@
 <template>
   <div id="blibliApp">
     <header>
-      <NavigationBar :toggleNavbar="toggleNavbar" />
+      <NavigationBar />
     </header>
     <router-view/>
   </div>

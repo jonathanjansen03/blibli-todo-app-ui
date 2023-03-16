@@ -3,16 +3,14 @@
     <h1>This is an About page</h1>
     <BliCard>
       <BliCardContent>
-          This is a standalone template project using external blibli DLS.
+          This is a mini project made by Brayan, Winston, and Jansen given by
+          our mentors to aid us in our learning Blibli's tech stacks.
       </BliCardContent>
     </BliCard>
-    <a href="https://blue.blibli.com/documentation" class="button-doc">
-      <BliButton outline color="white" size="small">View Documentation</BliButton>
-    </a>
   </div>
 </template>
 
-<script src="./js/about-page"></script>
+<script src="./js/about-page.js"></script>
 
 <style lang="scss" scoped>
 @import '~@blibli/blue-tokens/dist/blue-tokens.scss';

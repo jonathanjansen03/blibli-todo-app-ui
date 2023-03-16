@@ -3,7 +3,7 @@
     <div class="logo-wrapper">
       <router-link to="/"><img src="@/assets/images/blibli-logo.png" alt="Logo"></router-link>
     </div>
-    <div class="nav-links">
+    <div class="nav-links" ref="navLinks">
       <router-link to="/" class="link-button">Home</router-link>
       <router-link to="/buy-books" class="link-button">Buy Books</router-link>
       <router-link to="/manage-books" class="link-button">Manage Books</router-link>
@@ -87,7 +87,7 @@ nav {
       }
     }
 
-    & .toggle-navbar {
+    & .toggleable-navbar {
       background-color: $blu-black;
       display: block;
       padding-top: 3rem;

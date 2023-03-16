@@ -2,12 +2,12 @@ export default {
   name: "NavigationBar",
   methods: {
     toggleNavbar() {
-      const navLinks = document.querySelector(".nav-links");
+      const navLinks = this.$refs.navLinks;
 
-      if (navLinks.classList.contains("toggle-navbar")) {
-        navLinks.classList.remove("toggle-navbar");
+      if (navLinks.classList.contains("toggleable-navbar")) {
+        navLinks.classList.remove("toggleable-navbar");
       } else {
-        navLinks.classList.add("toggle-navbar");
+        navLinks.classList.add("toggleable-navbar");
       }
     }
   }

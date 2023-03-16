@@ -2,7 +2,6 @@
   <div class="home blu">
     <div class="card">
       <h1>Welcome to Toko Buku Blibli!</h1>
-<!--      <ApiCall/>-->
       <router-link to="/buy-books" class="link-button">
         <BliButton color="secondary" size="large">Buy Books Now</BliButton>
       </router-link>
