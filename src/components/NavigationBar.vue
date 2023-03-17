@@ -24,11 +24,17 @@
 nav {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5rem;
   padding: 3rem 2rem 1rem;
   text-align: center;
-  width: 100%;
 
-  & .logo-wrapper { width: 15rem; }
+  .logo-wrapper {
+    width: 12rem;
+
+    a {
+      padding: 0;
+    }
+  }
 
   & a {
     display: flex;
@@ -46,15 +52,15 @@ nav {
     }
   }
 
-  & .nav-links { display: flex; }
+  .nav-links { display: flex; }
 
-  & .toggle-navbar-btn {
+  .toggle-navbar-btn {
     color: white;
     display: none;
     font-size: 3rem;
   }
 
-  & .x-btn {
+  .x-btn {
     display: none;
     color: white;
   }
@@ -75,7 +81,7 @@ nav {
   nav {
     padding: 3rem 1rem 1rem;
 
-    & .nav-links {
+    .nav-links {
       display: none;
       position: absolute;
       top: 8rem;
@@ -87,7 +93,7 @@ nav {
       }
     }
 
-    & .toggleable-navbar {
+    .toggleable-navbar {
       background-color: $blu-black;
       display: block;
       padding-top: 3rem;
@@ -96,18 +102,18 @@ nav {
       right: 0;
       top: 0;
 
-      & a {
+      a {
         display: block;
         text-align: left;
       }
     }
 
-    & .toggle-navbar-btn {
+    .toggle-navbar-btn {
       display: flex;
       align-items: center;
     }
 
-    & .x-btn {
+    .x-btn {
       display: block;
       position: absolute;
       top: 0.5rem;

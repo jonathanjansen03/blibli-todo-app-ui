@@ -15,17 +15,19 @@
 <style lang="scss" scoped>
 @import '~@blibli/blue-tokens/dist/blue-tokens.scss';
 
-.about{
+.about {
   min-height: 50vh;
   display: flex;
   align-items: center;
   text-align: center;
   flex-direction: column;
-  h1{
+
+  h1 {
     font-size: 2.4em;
     color: $blu-gray-light-3;
   }
-  .button-doc{
+
+  .button-doc {
     margin-top: 5%;
   }
 }
