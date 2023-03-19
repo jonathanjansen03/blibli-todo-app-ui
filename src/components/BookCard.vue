@@ -21,18 +21,6 @@
   width: 100%;
   gap: 1rem 2rem;
 
-  .blu-product {
-    margin: 1rem 0 0;
-
-    &__btn {
-      position: relative;
-    }
-  }
-}
-
-.card-action-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5rem;
+  .blu-product { margin: 1rem 0 0; }
 }
 </style>

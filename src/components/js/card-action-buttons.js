@@ -17,6 +17,7 @@ export default {
   data() {
     const t = this;
     return {
+      bookQuantity: 0,
       visibleModal: false,
       customControls: [
         {
@@ -40,6 +41,16 @@ export default {
           outline: false
         }
       ]
+    }
+  },
+  methods: {
+    incrementBookQuantity() {
+      this.bookQuantity++;
+    },
+    decrementBookQuantity() {
+      if (this.bookQuantity > 0) {
+        this.bookQuantity--;
+      }
     }
   }
 };

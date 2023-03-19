@@ -1,9 +1,13 @@
 <template>
   <div class="card-action-buttons">
     <div v-if="isBuyingBooks">
-      <BliButton color="primary" size="small"><BliIconMinus fill="#fff" /></BliButton>
-      <span>0</span>
-      <BliButton color="secondary" size="small"><BliIconPlus fill="#fff" /></BliButton>
+      <BliButton color="secondary" size="small" @click="decrementBookQuantity">
+        <BliIconMinus fill="#fff" />
+      </BliButton>
+      <span>{{ bookQuantity }}</span>
+      <BliButton color="secondary" size="small" @click="incrementBookQuantity">
+        <BliIconPlus fill="#fff" />
+      </BliButton>
     </div>
     <div v-else>
       <BliModal
@@ -32,13 +36,9 @@
     align-items: center;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 30rem;
     width: 100%;
   }
 }
 
-.icon {
-  position: absolute;
-  z-index: 100;
-}
+.icon { position: absolute; }
 </style>

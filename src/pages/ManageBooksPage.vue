@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BliField leading-icon b-clearable no-gap type="search">
+    <BliField leading-icon no-gap type="search">
       <BliInput placeholder="Search for book titles" />
       <BliIconSearch slot="leading-icon" />
       <BliButton color="primary">Search</BliButton>
