@@ -3,7 +3,7 @@ import { BliField, BliIconSearch, BliInput } from "@blibli/dls/dist/components";
 import {BliButton} from "@blibli/dls/dist/components/button";
 
 export default {
-  name: "ManageProducts",
+  name: "ManageProductsPage",
   components: {
     BookCard,
     BliButton,

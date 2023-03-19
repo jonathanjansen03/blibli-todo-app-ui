@@ -8,10 +8,7 @@
         :productInfo="productInfo"
         @click="productClick"
         i18="EN">
-        <div class="product-btn-container" slot="product-button">
-          <BliButton color="secondary">Update</BliButton>
-          <BliButton outline color="primary">Delete</BliButton>
-        </div>
+        <CardActionButtons slot="product-button" :is-buying-books="isBuyingBooks" />
       </Component>
     </Component>
   </div>
@@ -22,7 +19,7 @@
 <style lang="scss" scoped>
 .books-grid {
   width: 100%;
-  column-gap: 2rem;
+  gap: 1rem 2rem;
 
   .blu-product {
     margin: 1rem 0 0;
@@ -33,9 +30,9 @@
   }
 }
 
-.product-btn-container {
+.card-action-buttons {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 30rem;
+  margin-top: 5rem;
 }
 </style>

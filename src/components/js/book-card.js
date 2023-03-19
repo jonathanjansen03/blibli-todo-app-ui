@@ -1,12 +1,13 @@
-import {BliButton} from "@blibli/dls/dist/components/button";
 import { BliProduct, BliProductList } from "@blibli/dls/dist/add-ons/product"
+import CardActionButtons from "@/components/CardActionButtons.vue";
 
 export default {
+  props: ["isBuyingBooks"],
   name: "BookCard",
   components: {
-    BliButton,
     BliProduct,
-    BliProductList
+    BliProductList,
+    CardActionButtons
   },
   data() {
     return {
