@@ -3,7 +3,10 @@
     <header>
       <NavigationBar />
     </header>
-    <router-view/>
+    <main>
+      <router-view/>
+    </main>
+    <AppFooter />
   </div>
 </template>
 
@@ -24,7 +27,9 @@ header {
 }
 
 @media (max-width: 768px) {
-  #blibliApp { padding: 0 2rem; }
+  #blibliApp {
+    header, main { padding: 0 2rem; }
+  }
 
   header { margin-bottom: 5%; }
 }
@@ -34,6 +39,8 @@ header {
 }
 
 @media (min-width: 1024px) {
-  #blibliApp { padding: 0 14rem; }
+  #blibliApp {
+    header, main { padding: 0 14rem; }
+  }
 }
 </style>
