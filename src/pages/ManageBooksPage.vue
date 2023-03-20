@@ -6,8 +6,13 @@
       <BliButton color="primary">Search</BliButton>
     </BliField>
     <div class="create-btn-container">
-      <BliButton color="secondary">Insert Book</BliButton>
-      <BliButton color="secondary">Make Report</BliButton>
+      <router-link to="/insert-book">
+        <BliButton color="secondary">Insert Book</BliButton>
+      </router-link>
+
+      <router-link to="/create-report">
+        <BliButton color="secondary">Create Report</BliButton>
+      </router-link>
     </div>
     <BookCard />
   </div>

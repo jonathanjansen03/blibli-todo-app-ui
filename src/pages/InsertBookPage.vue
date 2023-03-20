@@ -1,0 +1,39 @@
+<template>
+  <BliCard>
+    <BliCardContent>
+      <form class="insert-book-form" action="">
+        <h1 class="insert-book-form__header">Insert Book Form</h1>
+
+        <BliField b-clearable :message="helperMessage.title">
+          <label>Book Title</label>
+          <BliInput v-model="title" maxlength="50" required />
+        </BliField>
+
+        <BliField b-clearable :message="helperMessage.author">
+          <label>Book Author</label>
+          <BliInput v-model="author" maxlength="50" />
+        </BliField>
+
+        <BliField b-clearable :message="helperMessage.stock">
+          <label>Book Stock</label>
+          <BliInput v-model.number="stock" type="number" />
+        </BliField>
+
+        <BliField b-clearable :message="helperMessage.price">
+          <label>Book Price</label>
+          <BliInput v-model.number="price" type="number" />
+        </BliField>
+
+        <BliButton color="secondary" @click="handleSubmit">Insert</BliButton>
+      </form>
+    </BliCardContent>
+  </BliCard>
+</template>
+
+<script src="./js/insert-book-page.js"></script>
+
+<style lang="scss" scoped>
+.insert-book-form {
+
+}
+</style>

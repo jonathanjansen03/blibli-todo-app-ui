@@ -28,6 +28,12 @@ const routes = [
     name: app.routerName.about,
     component: () => import('../pages/AboutPage.vue'),
     meta: { title: `${app.title.base} - ${app.title.about}` }
+  },
+  {
+    path: pages.insertBook,
+    name: app.routerName.insertBook,
+    component: () => import('../pages/InsertBookPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.insertBook}` }
   }
 ]
 
