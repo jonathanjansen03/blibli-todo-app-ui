@@ -1,4 +1,4 @@
-import { describe, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import VueRouter from "vue-router"
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import NavigationBar from "@/components/NavigationBar.vue";

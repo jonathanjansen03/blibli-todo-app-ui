@@ -7,13 +7,13 @@
 <script src="./js/app-footer.js"></script>
 
 <style lang="scss" scoped>
-@import "~@blibli/blue-tokens/dist/blue-tokens";
+  @import "~@blibli/blue-tokens/dist/blue-tokens";
 
-footer {
-  background-color: $blu-black-low;
-  color: $blu-white;
-  padding: 2rem 0;
-  text-align: center;
-  width: 100%;
-}
+  footer {
+    background-color: $blu-black-low;
+    color: $blu-white;
+    padding: 2rem 0;
+    text-align: center;
+    width: 100%;
+  }
 </style>
