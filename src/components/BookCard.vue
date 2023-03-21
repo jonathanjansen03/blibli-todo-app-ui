@@ -2,13 +2,14 @@
   <div class="dev-single-product">
     <Component :is="bliProductList()" type="grid-view" class="books-grid">
       <Component
-        v-for="(item, idx) in totalProducts"
+        v-for="book in books"
         :is="bliProduct()"
-        :key="idx"
-        :productInfo="productInfo"
+        :key="book.id"
+        :productInfo="book"
         @click="productClick"
         i18="EN">
-        <CardActionButtons slot="product-button" :is-buying-books="isBuyingBooks" />
+      >
+        <CardActionButtons slot="product-button" :is-buying-books="isBuyingBooks" :book-id="book.id" />
       </Component>
     </Component>
   </div>
@@ -20,7 +21,5 @@
 .books-grid {
   width: 100%;
   gap: 1rem 2rem;
-
-  .blu-product { margin: 1rem 0 0; }
 }
 </style>
