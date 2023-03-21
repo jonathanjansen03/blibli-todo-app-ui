@@ -1,7 +1,8 @@
+import { api } from "@/config"
+import axios from "axios";
 import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
 import { BliField, BliInput } from "@blibli/dls/dist/components";
-import axios from "axios";
 
 export default {
   components: {
@@ -23,21 +24,23 @@ export default {
         stock: "Stock must be between 1 and 100 (inclusive).",
         price: "Price is in IDR and must be between 1000 and 100000 (inclusive)."
       },
-      title: "",
-      author: "",
-      stock: 0,
-      price: 0,
+      book: {
+        title: "",
+        author: "",
+        stock: 0,
+        price: 0,
+      }
     }
   },
   computed: {
     isAllFieldFilled() {
-      return this.title && this.author && this.stock && this.price;
+      return this.book.title && this.book.author && this.book.stock && this.book.price;
     },
     isValidStock() {
-      return this.stock >= 1 && this.stock <= 100;
+      return this.book.stock >= 1 && this.book.stock <= 100;
     },
     isValidPrice() {
-      return this.price >= 1000 && this.price <= 100000;
+      return this.book.price >= 1000 && this.book.price <= 100000;
     },
   },
   methods: {
@@ -59,24 +62,21 @@ export default {
 
       return true;
     },
-    handleSubmit() {
+    async handleSubmit() {
       const isValidInputs = this.validateInputs();
 
       if (!isValidInputs) {
         return;
       }
 
-      // console.log(this.title);
-      // console.log(this.author);
-      // console.log(this.stock);
-      // console.log(this.price);
-      axios.get("https://localhost:8080/gdn-bookstore-api/books")
-        .then(response => {
-          console.log(response);
+      axios.post(api.insertBookAPI.api, this.book)
+        .then(() => {
+          alert("Book inserted successfully!");
+          document.querySelector(".insert-book-form").reset();
         })
         .catch(error => {
-          console.log(error.message);
-        })
+          alert("Failed to insert book. Please try again later. Error: " + error.message);
+        });
     }
   }
 }

@@ -6,22 +6,22 @@
 
         <BliField b-clearable :message="helperMessage.title">
           <label>Book Title</label>
-          <BliInput v-model="title" maxlength="50" required />
+          <BliInput v-model="book.title" maxlength="50" required />
         </BliField>
 
         <BliField b-clearable :message="helperMessage.author">
           <label>Book Author</label>
-          <BliInput v-model="author" maxlength="50" />
+          <BliInput v-model="book.author" maxlength="50" />
         </BliField>
 
         <BliField b-clearable :message="helperMessage.stock">
           <label>Book Stock</label>
-          <BliInput v-model.number="stock" type="number" />
+          <BliInput v-model.number="book.stock" type="number" />
         </BliField>
 
         <BliField b-clearable :message="helperMessage.price">
           <label>Book Price</label>
-          <BliInput v-model.number="price" type="number" />
+          <BliInput v-model.number="book.price" type="number" />
         </BliField>
 
         <BliButton color="secondary" @click="handleSubmit">Insert</BliButton>

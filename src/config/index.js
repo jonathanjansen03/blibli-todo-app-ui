@@ -33,10 +33,14 @@ const api = {
   testPostAPI: {
     api: '/backend/test'
   },
-
+  getAllBooksAPI: {
+    api: 'http://localhost:8080/gdn-bookstore-api/books'
+  },
+  insertBookAPI: {
+    api: 'http://localhost:8080/gdn-bookstore-api/books/insert'
+  }
 }
 
-// GET 	"gdn-bookstore-api/books" 				-> return all books
 // GET 	"gdn-bookstore-api/books?title=<title>" 		-> return specified title
 // POST 	"gdn-bookstore-api/books/insert"			-> insert to mongodb (object sent via form) Book {title, author, stock, price}
 // PUT	"gdn-bookstore-api/books/update/{bookId}"		-> update book (object sent via form) Book {title, author, stock, price}
