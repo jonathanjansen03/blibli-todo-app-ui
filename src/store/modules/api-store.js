@@ -28,7 +28,7 @@ const actions = {
   },
   postTextData: async ({ commit }, data) => {
     await testAPI.postDataViaAPI(data)
-      .then(res  => {
+      .then(res => {
         commit('setPostText', res.body.data.text)
         commit('setTexts', res.body.data.list)
         return res

@@ -1,6 +1,6 @@
 <template>
   <div class="about blu">
-    <h1>This is an About page</h1>
+    <h1 class="about__header">This is an About page</h1>
     <BliCard>
       <BliCardContent>
           This is a mini project made by Brayan, Winston, and Jansen given by
@@ -22,7 +22,7 @@
   text-align: center;
   flex-direction: column;
 
-  h1 {
+  &__header {
     font-size: 2.4em;
     color: $blu-gray-light-3;
   }

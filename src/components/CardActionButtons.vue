@@ -11,6 +11,7 @@
     </div>
     <div v-else>
       <BliModal
+        class="modal"
         type="warning"
         :bli-active.sync="visibleModal"
         :controls="customControls"
@@ -22,8 +23,16 @@
           This book's data will be deleted <b>permanently</b> from the database.
         </BliModalBody>
       </BliModal>
-      <BliButton color="secondary" size="small">Update</BliButton>
-      <BliButton outline color="primary" size="small" @click="visibleModal = true">Delete</BliButton>
+      <BliButton class="modal__update-btn" color="secondary" size="small">Update</BliButton>
+      <BliButton
+        class="modal__delete-btn"
+        outline
+        color="primary"
+        size="small"
+        @click="visibleModal = true"
+      >
+        Delete
+      </BliButton>
     </div>
   </div>
 </template>
