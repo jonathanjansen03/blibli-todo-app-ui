@@ -1,17 +1,17 @@
-import httpApi from '@/utils/http-api'
-import { api } from '@/config'
+import httpApi from "@/utils/http-api";
+import { testApi } from "@/config";
 
 export default {
   getDataByAPI: (query) => {
     return httpApi.getDataViaApi({
-      url: api.testGetAPI.api,
-      queryParams: query
-    })
+      url: testApi.testGetAPI.api,
+      queryParams: query,
+    });
   },
   postDataViaAPI: (body) => {
     return httpApi.postDataViaApi({
-      url: api.testPostAPI.api,
-      body
-    })
-  }
-}
+      url: testApi.testPostAPI.api,
+      body,
+    });
+  },
+};

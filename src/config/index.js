@@ -26,18 +26,24 @@ const pages = {
   createReport: '/create-report'
 }
 
-const api = {
+const testApi = {
   testGetAPI: {
     api: '/backend/test'
   },
   testPostAPI: {
     api: '/backend/test'
-  },
+  }
+}
+
+const api = {
   getAllBooksAPI: {
-    api: 'http://localhost:8080/gdn-bookstore-api/books'
+    api: '/gdn-bookstore-api/books'
   },
   insertBookAPI: {
-    api: 'http://localhost:8080/gdn-bookstore-api/books/insert'
+    api: '/gdn-bookstore-api/books/insert'
+  },
+  deleteBookAPI: {
+    api: '/gdn-bookstore-api/books/delete/'
   }
 }
 
@@ -55,4 +61,4 @@ const api = {
 //
 // GET	"gdn-bookstore-api/transactions?month=<month>&year=<year>	-> return monthly report
 
-export { app, pages, api }
+export { app, pages, testApi, api }

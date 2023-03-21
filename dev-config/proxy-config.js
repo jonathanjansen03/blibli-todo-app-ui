@@ -12,11 +12,11 @@ const onProxyReqHandler = async function (proxyReq) {
   proxyReq.setHeader('accept-encoding', 'gzip;q=0,deflate,sdch')
 }
 
-const TARGET = 'https://www.blibli.com'
+const TARGET = 'http://localhost:8080'
 
 const commonProxy = {
   //Example
-  '/api/': {
+  '/gdn-bookstore-api/': {
     target: TARGET,
     changeOrigin: true,
     rewrite: (path) => path.replace(/^\/api\//, '/backend/')
