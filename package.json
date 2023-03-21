@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "@blibli/dev-tools": "^0.4.4",
-    "@blibli/integration-test-tools": "1.7.8",
     "@vitejs/plugin-legacy": "^2.0.1",
     "@vitejs/plugin-vue2": "^1.1.2",
     "@vitest/coverage-istanbul": "^0.27.2",
