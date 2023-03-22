@@ -1,5 +1,6 @@
 import { BliProduct, BliProductList } from "@blibli/dls/dist/add-ons/product"
 import CardActionButtons from "@/components/CardActionButtons.vue";
+import { mapGetters } from "vuex";
 
 export default {
   props: ["isBuyingBooks"],
@@ -9,29 +10,8 @@ export default {
     BliProductList,
     CardActionButtons
   },
-  data() {
-    return {
-      totalProducts: 40,
-      productInfo: {
-        name: "Harry Potter",
-        imageUrl: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-11147207/dekoruma_dekoruma_full03.jpg",
-        variant: 5,
-        seller: {
-          name: "J.K. Rowling",
-          location: "United Kingdom",
-          isOfficialStore: false,
-        },
-        features: {
-          feature: "",
-          "2hd": false
-        },
-        price: {
-          final: 1000000,
-          old: 2000000,
-          discount: 50
-        }
-      }
-    }
+  computed: {
+    ...mapGetters("book", ["books"])
   },
   methods: {
     bliProductList() {

@@ -23,16 +23,19 @@
           This book's data will be deleted <b>permanently</b> from the database.
         </BliModalBody>
       </BliModal>
-      <BliButton class="modal__update-btn" color="secondary" size="small">Update</BliButton>
-      <BliButton
-        class="modal__delete-btn"
-        outline
-        color="primary"
-        size="small"
-        @click="visibleModal = true"
-      >
-        Delete
-      </BliButton>
+
+      <div class="card-action-buttons__btn-container">
+        <BliButton class="modal__update-btn" color="secondary" size="small">Update</BliButton>
+        <BliButton
+          class="modal__delete-btn"
+          outline
+          color="primary"
+          size="small"
+          @click="visibleModal = true"
+        >
+          Delete
+        </BliButton>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +44,7 @@
 
 <style lang="scss" scoped>
 .card-action-buttons {
-  & > div {
+  & > div, &__btn-container {
     align-items: center;
     display: flex;
     justify-content: space-evenly;

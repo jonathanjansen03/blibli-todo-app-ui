@@ -1,8 +1,7 @@
-import { api } from "@/config"
-import axios from "axios";
 import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
 import { BliField, BliInput } from "@blibli/dls/dist/components";
+import store from "@/store";
 
 export default {
   components: {
@@ -30,7 +29,7 @@ export default {
         stock: 0,
         price: 0,
       }
-    }
+    };
   },
   computed: {
     isAllFieldFilled() {
@@ -69,14 +68,16 @@ export default {
         return;
       }
 
-      axios.post(api.insertBookAPI.api, this.book)
-        .then(() => {
-          alert("Book inserted successfully!");
-          document.querySelector(".insert-book-form").reset();
-        })
-        .catch(error => {
-          alert("Failed to insert book. Please try again later. Error: " + error.message);
-        });
+      store.commit("book/setBooks", this.book);
+
+      // axios.post(api.insertBookAPI.api, this.book)
+      //   .then(() => {
+      //     alert("Book inserted successfully!");
+      //     document.querySelector(".insert-book-form").reset();
+      //   })
+      //   .catch(err => {
+      //     alert("Failed to insert book. Please try again later. " + err.message);
+      //   });
     }
   }
 }

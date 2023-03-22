@@ -2,9 +2,10 @@ import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliModal, BliModalBody, BliModalHeader } from "@blibli/dls/dist/components";
 import BliIconPlus from "@blibli/blue-icon/dist/icons/Plus"
 import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  props: ["isBuyingBooks"],
+  props: ["isBuyingBooks", "index"],
   name: "CardActionButtons",
   components: {
     BliButton,
@@ -23,10 +24,7 @@ export default {
         {
           label: "Cancel",
           handler() {
-            console.log(t.visibleModal);
             t.visibleModal = false;
-            console.log(t)
-            console.log(this);
           },
           color: "secondary",
           outline: true
@@ -34,16 +32,20 @@ export default {
         {
           label: "Delete Forever",
           handler() {
-            alert("Book deleted successfully!");
+            t.deleteBook(t.index);
             t.visibleModal = false;
           },
           color: "primary",
           outline: false
         }
       ]
-    }
+    };
+  },
+  computed: {
+    ...mapGetters("book", ["books"]),
   },
   methods: {
+    ...mapActions("book", ["deleteBook"]),
     incrementBookQuantity() {
       this.bookQuantity++;
     },

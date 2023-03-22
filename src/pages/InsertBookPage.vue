@@ -1,7 +1,7 @@
 <template>
   <BliCard>
     <BliCardContent>
-      <form class="insert-book-form" action="">
+      <div class="insert-book-form">
         <h1 class="insert-book-form__header">Insert Book Form</h1>
 
         <BliField b-clearable :message="helperMessage.title">
@@ -25,7 +25,7 @@
         </BliField>
 
         <BliButton color="secondary" @click="handleSubmit">Insert</BliButton>
-      </form>
+      </div>
     </BliCardContent>
   </BliCard>
 </template>
@@ -33,7 +33,5 @@
 <script src="./js/insert-book-page.js"></script>
 
 <style lang="scss" scoped>
-.insert-book-form {
 
-}
 </style>
