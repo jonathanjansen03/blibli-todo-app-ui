@@ -36,7 +36,7 @@ nav {
     }
   }
 
-  & a {
+  a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +86,7 @@ nav {
       position: absolute;
       top: 8rem;
 
-      & a {
+      a {
         display: block;
         border-left: 0;
         text-align: left;
