@@ -24,4 +24,4 @@ export default {
       console.log("Clicked", this.productInfo.name);
     }
   }
-}
+};
