@@ -1,9 +1,9 @@
 <template>
   <div class="about blu">
-    <h1 class="about__header">This is an About page</h1>
+    <h1 class="about__header">About this project</h1>
     <BliCard>
       <BliCardContent>
-          This is a mini project made by Brayan, Winston, and Jansen given by
+          This is a mini project made by Brayan, Jansen, and Winston given by
           our mentors to aid us in our learning Blibli's tech stacks.
       </BliCardContent>
     </BliCard>
@@ -13,7 +13,7 @@
 <script src="./js/about-page.js"></script>
 
 <style lang="scss" scoped>
-@import '~@blibli/blue-tokens/dist/blue-tokens.scss';
+@import "~@blibli/blue-tokens/dist/blue-tokens.scss";
 
 .about {
   min-height: 50vh;

@@ -12,7 +12,7 @@
 <script src="./js/home-page.js"></script>
 
 <style lang="scss" scoped>
-@import '~@blibli/blue-tokens/dist/blue-tokens';
+@import "~@blibli/blue-tokens/dist/blue-tokens";
 
 .home {
   display: flex;

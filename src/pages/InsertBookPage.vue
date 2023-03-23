@@ -32,6 +32,4 @@
 
 <script src="./js/insert-book-page.js"></script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

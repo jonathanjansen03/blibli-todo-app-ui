@@ -1,17 +1,13 @@
 <template>
   <div>
-    <BliField leading-icon no-gap type="search">
-      <BliInput placeholder="Search for book titles" />
-      <BliIconSearch slot="leading-icon" />
-      <BliButton color="primary">Search</BliButton>
-    </BliField>
+    <SearchBar />
     <div class="create-btn-container">
       <router-link to="/insert-book">
-        <BliButton color="secondary">Insert Book</BliButton>
+        <BliButton color="primary">Insert Book</BliButton>
       </router-link>
 
       <router-link to="/create-report">
-        <BliButton color="secondary">Create Report</BliButton>
+        <BliButton color="primary">Create Report</BliButton>
       </router-link>
     </div>
     <BookCard />

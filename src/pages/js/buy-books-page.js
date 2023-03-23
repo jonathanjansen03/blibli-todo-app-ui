@@ -1,14 +1,10 @@
 import BookCard from "@/components/BookCard.vue";
-import { BliField, BliIconSearch, BliInput } from "@blibli/dls/dist/components";
-import {BliButton} from "@blibli/dls/dist/components/button";
+import SearchBar from "@/components/SearchBar.vue";
 
 export default {
   name: "BuyBooksPage",
   components: {
     BookCard,
-    BliButton,
-    BliField,
-    BliIconSearch,
-    BliInput
+    SearchBar
   }
 }
