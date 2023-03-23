@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchBar />
-    <BookCard :is-buying-books="true" />
+    <BookCard />
   </div>
 </template>
 
