@@ -2,15 +2,14 @@ import { api } from "@/config";
 import axios from "axios";
 
 const setBookData = book => {
+  const authors = book.author.split(",");
+
   return {
     id: book.id,
     name: book.title,
-    imageUrl: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-11147207/dekoruma_dekoruma_full03.jpg",
-    variant: 0,
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 80)}/800`,
     seller: {
-      name: book.author,
-      location: "United Kingdom",
-      isOfficialStore: false,
+      name: authors.length > 1 ? authors[0] + " et al." : authors[0]
     },
     features: {
       feature: "",
@@ -20,7 +19,8 @@ const setBookData = book => {
       final: book.price * book.discount,
       old: book.discount === 1 ? null : book.price,
       discount: (1 - book.discount) * 100
-    }
+    },
+    stock: book.stock
   };
 };
 
@@ -43,6 +43,10 @@ const mutations = {
   },
   deleteBook(state, index) {
     state.books.splice(index, 1);
+  },
+  changeStock(state, { id, qty }) {
+    const index = state.books.findIndex(book => book.id === id);
+    state.books[index].stock += qty;
   }
 };
 
@@ -69,7 +73,8 @@ const actions = {
         alert("Error adding book. Please try again later. " + err);
       });
 
-    commit("insertBook", book);
+    const newBook = setBookData(book);
+    commit("insertBook", newBook);
   },
   deleteBook({ commit, state }, index) {
     axios
@@ -82,6 +87,9 @@ const actions = {
       });
 
     commit("deleteBook", index);
+  },
+  changeStock({ commit }, { id, qty }) {
+    commit("changeStock", { id, qty });
   }
 };
 
@@ -91,4 +99,4 @@ export default {
   getters,
   actions,
   mutations
-}
+};

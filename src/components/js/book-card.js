@@ -11,7 +11,10 @@ export default {
     CardActionButtons
   },
   computed: {
-    ...mapGetters("book", ["books"])
+    ...mapGetters("book", ["books"]),
+    isEmpty() {
+      return this.books.length === 0;
+    }
   },
   methods: {
     bliProductList() {

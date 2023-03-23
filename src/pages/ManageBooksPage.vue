@@ -10,7 +10,7 @@
         <BliButton color="primary">Create Report</BliButton>
       </router-link>
     </div>
-    <BookCard />
+    <BookCard :is-buying-books="false" />
   </div>
 </template>
 

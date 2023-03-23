@@ -18,7 +18,6 @@
   #blibliApp {
     margin: 0 auto;
     background: $blu-black-high;
-    min-height: 100vh;
   }
 
   header {
@@ -27,6 +26,7 @@
   }
 
   main {
+    min-height: 100vh;
     padding: 0 2rem;
   }
 

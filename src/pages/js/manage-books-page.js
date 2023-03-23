@@ -1,6 +1,6 @@
 import { BliButton } from "@blibli/dls/dist/components/button";
 import BookCard from "@/components/BookCard.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import SearchBar from "@/components/SearchBar.vue";
 
 export default {
@@ -10,10 +10,15 @@ export default {
     BookCard,
     SearchBar
   },
+  computed: {
+    ...mapGetters("book", ["books"])
+  },
   methods: {
     ...mapActions("book", ["setBooks"])
   },
   async beforeMount() {
-    await this.setBooks("");
+    if (this.books.length ===0) {
+      await this.setBooks("");
+    }
   }
 };

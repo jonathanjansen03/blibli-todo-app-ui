@@ -1,13 +1,11 @@
 <template>
   <div class="card-action-buttons">
     <div v-if="isBuyingBooks">
-      <BliButton color="secondary" size="small" @click="decrementBookQuantity">
-        <BliIconMinus fill="#fff" />
-      </BliButton>
-      <span>{{ bookQuantity }}</span>
-      <BliButton color="secondary" size="small" @click="incrementBookQuantity">
-        <BliIconPlus fill="#fff" />
-      </BliButton>
+      <div>
+        <router-link :to="/books/ + bookId">
+          <BliButton color="secondary" size="small">View Details</BliButton>
+        </router-link>
+      </div>
     </div>
     <div v-else>
       <BliModal
@@ -44,7 +42,7 @@
 
 <style lang="scss" scoped>
 .card-action-buttons {
-  & > div, &__btn-container {
+  & > div > div {
     align-items: center;
     display: flex;
     justify-content: space-evenly;

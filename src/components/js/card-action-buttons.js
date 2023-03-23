@@ -43,16 +43,11 @@ export default {
   },
   computed: {
     ...mapGetters("book", ["books"]),
+    bookId() {
+      return this.books[this.index].id;
+    }
   },
   methods: {
-    ...mapActions("book", ["deleteBook"]),
-    incrementBookQuantity() {
-      this.bookQuantity++;
-    },
-    decrementBookQuantity() {
-      if (this.bookQuantity > 0) {
-        this.bookQuantity--;
-      }
-    }
+    ...mapActions("book", ["deleteBook"])
   }
 };
