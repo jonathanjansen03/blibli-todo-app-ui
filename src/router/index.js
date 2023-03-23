@@ -24,6 +24,12 @@ const routes = [
     meta: { title: `${app.title.base} - ${app.title.buyBooks}` }
   },
   {
+    path: pages.cart,
+    name: app.routerName.cart,
+    component: () => import('../pages/CartPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.cart}` }
+  },
+  {
     path: pages.about,
     name: app.routerName.about,
     component: () => import('../pages/AboutPage.vue'),
@@ -34,6 +40,12 @@ const routes = [
     name: app.routerName.insertBook,
     component: () => import('../pages/InsertBookPage.vue'),
     meta: { title: `${app.title.base} - ${app.title.insertBook}` }
+  },
+  {
+    path: pages.bookDetail,
+    name: app.routerName.bookDetail,
+    component: () => import('../pages/BookDetailPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.bookDetail}` }
   }
 ]
 

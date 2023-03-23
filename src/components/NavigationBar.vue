@@ -7,6 +7,7 @@
       <router-link to="/" class="link-button">Home</router-link>
       <router-link to="/buy-books" class="link-button">Buy Books</router-link>
       <router-link to="/manage-books" class="link-button">Manage Books</router-link>
+      <router-link to="/cart" class="link-button">View Cart</router-link>
       <router-link to="/about" class="link-button">About</router-link>
       <div class="x-btn" @click="toggleNavbar">x</div>
     </div>
@@ -30,18 +31,14 @@ nav {
 
   .logo-wrapper {
     width: 12rem;
-
-    a {
-      padding: 0;
-    }
   }
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
     border-left: 1px solid rgba(84, 84, 84, 0.48);
+    width: 100%;
 
     &.router-link-exact-active { color: hsla(160, 100%, 37%, 1); }
 
@@ -52,7 +49,13 @@ nav {
     }
   }
 
-  .nav-links { display: flex; }
+  .nav-links {
+    display: flex;
+
+    a {
+      width: 13rem;
+    }
+  }
 
   .toggle-navbar-btn {
     color: white;

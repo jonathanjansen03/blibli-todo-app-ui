@@ -3,27 +3,34 @@ const app = {
     home: 'home',
     manageBooks: 'manageBooks',
     buyBooks: 'buyBooks',
+    cart: 'cart',
     about: 'about',
     insertBook: 'insertBook',
-    createReport: 'createReport'
+    createReport: 'createReport',
+    bookDetail: 'bookDetail'
   },
   title: {
     base: 'Toko Buku Blibli',
     home: 'Home',
     manageBooks: 'Manage Books',
     buyBooks: 'Buy Books',
+    cart: 'Cart',
     about: 'About',
     insertBook: 'Insert Book',
-    createReport: 'Create Report'
+    createReport: 'Create Report',
+    bookDetail: 'Book Detail'
   }
 }
+
 const pages = {
   home: '/',
-  about: '/about',
   buyBooks: '/buy-books',
   manageBooks: '/manage-books',
+  cart: '/cart',
+  about: '/about',
   insertBook: '/insert-book',
-  createReport: '/create-report'
+  createReport: '/create-report',
+  bookDetail: '/books/:id'
 }
 
 const testApi = {
@@ -49,7 +56,7 @@ const api = {
     api: '/gdn-bookstore-api/books/delete/'
   }
 }
-
+// https://random-data-api.com/api/v2/addresses
 // POST 	"gdn-bookstore-api/books/insert"			-> insert to mongodb (object sent via form) Book {title, author, stock, price}
 // PUT	"gdn-bookstore-api/books/update/{bookId}"		-> update book (object sent via form) Book {title, author, stock, price}
 // **PUT 	"gdn-bookstore-api/books/set-discount/{bookId}"		-> update book's discount (discount value = 0 - 1)
