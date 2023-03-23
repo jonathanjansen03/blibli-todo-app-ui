@@ -25,25 +25,18 @@ const setBookData = book => {
 };
 
 const state = {
-  books: [],
-  searchedBooks: []
+  books: []
 };
 
 const getters = {
   books(state) {
     return state.books;
-  },
-  searchedBooks(state) {
-    return state.searchedBooks;
   }
 };
 
 const mutations = {
   setBooks(state, books) {
     state.books = books;
-  },
-  setSearchedBooks(state, books) {
-    state.searchedBooks = books;
   },
   insertBook(state, book) {
     state.books.push(book);
@@ -54,9 +47,10 @@ const mutations = {
 };
 
 const actions = {
-  setBooks({ commit }) {
+  setBooks({ commit }, searchQuery) {
+    const url = searchQuery === "" ? api.getAllBooksAPI.api : api.searchBookAPI.api + searchQuery;
     axios
-      .get(api.getAllBooksAPI.api)
+      .get(url)
       .then(res => {
         const books = res.data.map(book => setBookData(book));
         commit("setBooks", books);
@@ -64,16 +58,6 @@ const actions = {
       .catch(err => {
         alert("Error while fetching books data. Please try again later. " + err);
       });
-  },
-  setSearchedBooks({ commit }, searchQuery) {
-    axios
-      .get(api.searchBookAPI.api + searchQuery)
-      .then(res => {
-        const books = res.data.map(book => setBookData(book));
-        commit("setSearchedBooks", books);
-      });
-    let books;
-    commit("setSearchedBooks", books);
   },
   insertBook({ commit }, book) {
     axios

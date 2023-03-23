@@ -1,8 +1,8 @@
 <template>
   <BliField leading-icon no-gap type="search">
-    <BliInput placeholder="Search for book titles" />
+    <BliInput placeholder="Search for book titles" v-model="searchQuery" />
     <BliIconSearch slot="leading-icon" />
-    <BliButton color="secondary">Search</BliButton>
+    <BliButton color="secondary" @click="handleSearch">Search</BliButton>
   </BliField>
 </template>
 

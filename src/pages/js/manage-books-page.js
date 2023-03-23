@@ -14,6 +14,6 @@ export default {
     ...mapActions("book", ["setBooks"])
   },
   async beforeMount() {
-    await this.setBooks();
+    await this.setBooks("");
   }
 };
