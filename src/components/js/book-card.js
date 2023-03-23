@@ -19,9 +19,6 @@ export default {
     },
     bliProduct() {
       return BliProduct;
-    },
-    productClick() {
-      console.log("Clicked", this.productInfo.name);
     }
   }
 };

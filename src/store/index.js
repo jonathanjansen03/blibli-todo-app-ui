@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import book from './modules/book'
-import counter from './modules/counter'
 import apiStore from './modules/api-store'
+import book from './modules/book'
+import cart from './modules/cart'
+import counter from './modules/counter'
 
 Vue.use(Vuex)
 
 const modules = {
+  apiStore,
   book,
-  counter,
-  apiStore
+  cart,
+  counter
 }
 
 const store = new Vuex.Store({
