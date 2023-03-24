@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton.vue";
 import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
 import { BliField, BliInput } from "@blibli/dls/dist/components";
@@ -6,6 +7,7 @@ import { mapActions } from "vuex";
 export default {
   name: "InsertBookPage",
   components: {
+    BackButton,
     BliButton,
     BliCard,
     BliCardContent,

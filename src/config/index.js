@@ -60,7 +60,7 @@ const api = {
     api: '/gdn-bookstore-api/transactions/insert'
   },
   getTransactionsReportAPI: {
-    api: '/gdn-bookstore-api/transactions?',
+    api: '/gdn-bookstore-api/transactions/report?',
     params: {
       month: 'month=',
       year: 'year='

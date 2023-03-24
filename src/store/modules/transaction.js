@@ -13,12 +13,13 @@ const getters = {
 
 const mutations = {
   insertTransaction(state, transaction) {
-    state.transactions.push(transaction);
+    state.transactions = transaction.slice(0);
   }
 };
 
 const actions = {
-  insertTransaction(transactions) {
+  // eslint-disable-next-line no-unused-vars
+  insertTransaction({ commit }, transactions) {
     transactions.forEach(transaction => {
       axios
         .post(api.insertTransactionAPI.api, transaction)
@@ -35,13 +36,10 @@ const actions = {
       api.getTransactionsReportAPI.params.month + month + "&" +
       api.getTransactionsReportAPI.params.year + year;
 
-    console.log(url)
     axios
       .get(url)
       .then(res => {
-        res.data.forEach(transaction => {
-          commit("insertTransaction", transaction);
-        });
+        commit("insertTransaction", res.data);
       })
       .catch(err => {
         alert("Error while fetching transactions data. Please try again later. " + err);
