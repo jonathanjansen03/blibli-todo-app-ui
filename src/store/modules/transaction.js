@@ -31,7 +31,7 @@ const actions = {
         });
     });
   }
-}
+};
 
 export default {
   namespaced: true,
@@ -39,4 +39,4 @@ export default {
   getters,
   actions,
   mutations
-}
+};

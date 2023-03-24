@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     ...mapActions("book", ["changeStock"]),
-    ...mapActions("cart", ["removeFromCart"]),
+    ...mapActions("cart", ["removeFromCart", "emptyCart"]),
+    ...mapActions("transaction", ["insertTransaction"]),
     getTotalPrice() {
       return this.cartItems.reduce((total, item) => {
         return total + (item.book.price.final * item.qty);
@@ -45,6 +46,16 @@ export default {
       await this.changeStock({id: this.cartItems[index].book.id, qty: this.cartItems[index].qty});
       await this.removeFromCart(index);
       alert("Book removed from cart.");
+    },
+    async checkout() {
+      const transactions = this.cartItems.map(item => {
+        return {
+          bookId: item.book.id,
+          qty: item.qty
+        };
+      });
+      await this.insertTransaction(transactions);
+      this.emptyCart();
     }
   }
 };

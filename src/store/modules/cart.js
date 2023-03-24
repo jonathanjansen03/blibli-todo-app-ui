@@ -19,6 +19,9 @@ const mutations = {
   },
   removeFromCart(state, index) {
     state.cartItems.splice(index, 1);
+  },
+  emptyCart(state) {
+    state.cartItems = [];
   }
 };
 
@@ -28,6 +31,9 @@ const actions = {
   },
   removeFromCart({ commit }, index) {
     commit("removeFromCart", index);
+  },
+  emptyCart({ commit }) {
+    commit("emptyCart");
   }
 };
 

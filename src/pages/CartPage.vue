@@ -29,7 +29,7 @@
         <tr>
           <td colspan="3"><h3>Total</h3></td>
           <td><h3>IDR {{ getTotalPrice() }}</h3></td>
-          <td><BliButton color="secondary">Checkout</BliButton></td>
+          <td><BliButton color="secondary" @click="checkout">Checkout</BliButton></td>
         </tr>
         </tbody>
       </table>
