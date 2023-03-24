@@ -47,17 +47,26 @@ const api = {
     api: '/gdn-bookstore-api/books'
   },
   searchBookAPI: {
-    api: '/gdn-bookstore-api/books?title='
+    api: '/gdn-bookstore-api/books?',
+    params: { title: 'title=' }
   },
   insertBookAPI: {
     api: '/gdn-bookstore-api/books/insert'
   },
   deleteBookAPI: {
     api: '/gdn-bookstore-api/books/delete/'
+  },
+  insertTransactionAPI: {
+    api: '/gdn-bookstore-api/transactions/insert'
+  },
+  getTransactionsReportAPI: {
+    api: '/gdn-bookstore-api/transactions?month=',
+    params: {
+      month: 'month=',
+      year: 'year='
+    }
   }
 }
-// https://random-data-api.com/api/v2/addresses
-// POST 	"gdn-bookstore-api/books/insert"			-> insert to mongodb (object sent via form) Book {title, author, stock, price}
 // PUT	"gdn-bookstore-api/books/update/{bookId}"		-> update book (object sent via form) Book {title, author, stock, price}
 // **PUT 	"gdn-bookstore-api/books/set-discount/{bookId}"		-> update book's discount (discount value = 0 - 1)
 // GET	"gdn-bookstore-api/transactions"			-> return all transaction

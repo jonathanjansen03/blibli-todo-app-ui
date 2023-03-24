@@ -17,7 +17,7 @@ export default {
     ...mapActions("book", ["setBooks"])
   },
   async beforeMount() {
-    if (this.books.length ===0) {
+    if (this.books.length === 0) {
       await this.setBooks("");
     }
   }

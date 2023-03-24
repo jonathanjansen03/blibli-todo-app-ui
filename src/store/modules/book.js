@@ -3,7 +3,7 @@ import axios from "axios";
 
 const setBookData = book => {
   const authors = book.author.split(",");
-
+  const isDiscountUndefined = book.discount === undefined;
   return {
     id: book.id,
     name: book.title,
@@ -16,9 +16,9 @@ const setBookData = book => {
       "2hd": false
     },
     price: {
-      final: book.price * book.discount,
-      old: book.discount === 1 ? null : book.price,
-      discount: (1 - book.discount) * 100
+      final: book.price,
+      old: isDiscountUndefined || book.discount === 1 ? null : book.price / book.discount,
+      discount: isDiscountUndefined ? 0 : (1 - book.discount) * 100
     },
     stock: book.stock
   };
@@ -37,6 +37,7 @@ const getters = {
 const mutations = {
   setBooks(state, books) {
     state.books = books;
+    console.log(state.books)
   },
   insertBook(state, book) {
     state.books.push(book);
@@ -52,7 +53,8 @@ const mutations = {
 
 const actions = {
   setBooks({ commit }, searchQuery) {
-    const url = searchQuery === "" ? api.getAllBooksAPI.api : api.searchBookAPI.api + searchQuery;
+    const url = searchQuery === "" ? api.getAllBooksAPI.api :
+      api.searchBookAPI.api + api.searchBookAPI.params.title + searchQuery;
     axios
       .get(url)
       .then(res => {
@@ -63,10 +65,11 @@ const actions = {
         alert("Error while fetching books data. Please try again later. " + err);
       });
   },
-  insertBook({ commit }, book) {
+  insertBook({ commit, dispatch }, book) {
     axios
       .post(api.insertBookAPI.api, book)
       .then(() => {
+        dispatch("setBooks", "");
         alert("Book added successfully!");
       })
       .catch(err => {
