@@ -4,6 +4,7 @@ import apiStore from './modules/api-store'
 import book from './modules/book'
 import cart from './modules/cart'
 import counter from './modules/counter'
+import transaction from './modules/transaction'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,8 @@ const modules = {
   apiStore,
   book,
   cart,
-  counter
+  counter,
+  transaction
 }
 
 const store = new Vuex.Store({
