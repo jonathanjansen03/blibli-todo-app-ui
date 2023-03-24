@@ -1,7 +1,7 @@
 <template>
   <BliCard width="70">
     <BliCardContent>
-      <router-link to="/buy-books">&lt; Back</router-link>
+      <router-link to="/books/buy">&lt; Back</router-link>
       <div class="book-detail">
         <img :src="book.imageUrl" alt="Book Image" class="book-detail__img">
         <div class="book-detail_info">
@@ -10,13 +10,6 @@
           <p>Price: IDR {{ book.price.final }}</p>
           <p>Stock: {{ book.stock }}</p>
         </div>
-<!--        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-11147207/dekoruma_dekoruma_full03.jpg" alt="Book Image" class="book-detail__img">-->
-<!--        <div class="book-detail_info">-->
-<!--          <h2 class="book-detail__name">Harry Potter</h2>-->
-<!--          <p>Author(s): J.K. Rowling</p>-->
-<!--          <p>Price: 10000</p>-->
-<!--          <p>Stock: 100</p>-->
-<!--        </div>-->
         <div class="dev-input-stepper__wrapper">
           <BliInputStepper :isActive="false">
             <BliButton slot="minus-button" class="blu-input-stepper__minus" :disabled="minusBtnDisabled"

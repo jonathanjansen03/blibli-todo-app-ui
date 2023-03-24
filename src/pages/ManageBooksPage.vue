@@ -2,11 +2,11 @@
   <div>
     <SearchBar />
     <div class="create-btn-container">
-      <router-link to="/insert-book">
+      <router-link to="/books/insert">
         <BliButton color="primary">Insert Book</BliButton>
       </router-link>
 
-      <router-link to="/create-report">
+      <router-link to="/reports">
         <BliButton color="primary">Create Report</BliButton>
       </router-link>
     </div>

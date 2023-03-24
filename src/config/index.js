@@ -24,12 +24,12 @@ const app = {
 
 const pages = {
   home: '/',
-  buyBooks: '/buy-books',
-  manageBooks: '/manage-books',
+  buyBooks: '/books/buy',
+  manageBooks: '/books/manage',
   cart: '/cart',
   about: '/about',
-  insertBook: '/insert-book',
-  createReport: '/create-report',
+  insertBook: '/books/insert',
+  createReport: '/reports',
   bookDetail: '/books/:id'
 }
 
@@ -60,7 +60,7 @@ const api = {
     api: '/gdn-bookstore-api/transactions/insert'
   },
   getTransactionsReportAPI: {
-    api: '/gdn-bookstore-api/transactions?month=',
+    api: '/gdn-bookstore-api/transactions?',
     params: {
       month: 'month=',
       year: 'year='

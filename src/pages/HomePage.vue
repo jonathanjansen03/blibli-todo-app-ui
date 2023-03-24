@@ -2,7 +2,7 @@
   <div class="home blu">
     <div class="card">
       <h1>Welcome to Toko Buku Blibli!</h1>
-      <router-link to="/buy-books" class="link-button">
+      <router-link to="/books/buy" class="link-button">
         <BliButton color="secondary" size="large">Buy Books Now</BliButton>
       </router-link>
     </div>

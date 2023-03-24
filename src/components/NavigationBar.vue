@@ -5,8 +5,8 @@
     </div>
     <div class="nav-links" ref="navLinks">
       <router-link to="/" class="link-button">Home</router-link>
-      <router-link to="/buy-books" class="link-button">Buy Books</router-link>
-      <router-link to="/manage-books" class="link-button">Manage Books</router-link>
+      <router-link to="/books/buy" class="link-button">Buy Books</router-link>
+      <router-link to="/books/manage" class="link-button">Manage Books</router-link>
       <router-link to="/cart" class="link-button">View Cart</router-link>
       <router-link to="/about" class="link-button">About</router-link>
       <div class="x-btn" @click="toggleNavbar">x</div>
