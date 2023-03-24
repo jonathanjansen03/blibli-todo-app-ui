@@ -1,5 +1,10 @@
+import BliIconClose from "@blibli/blue-icon/dist/icons/Close"
+
 export default {
   name: "NavigationBar",
+  components: {
+    BliIconClose
+  },
   methods: {
     toggleNavbar() {
       const navLinks = this.$refs.navLinks;

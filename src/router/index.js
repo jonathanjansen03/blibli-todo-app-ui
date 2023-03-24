@@ -46,6 +46,12 @@ const routes = [
     name: app.routerName.bookDetail,
     component: () => import('../pages/BookDetailPage.vue'),
     meta: { title: `${app.title.base} - ${app.title.bookDetail}` }
+  },
+  {
+    path: pages.createReport,
+    name: app.routerName.createReport,
+    component: () => import('../pages/CreateReportPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.createReport}` }
   }
 ]
 

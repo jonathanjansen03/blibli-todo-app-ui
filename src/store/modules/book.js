@@ -37,7 +37,6 @@ const getters = {
 const mutations = {
   setBooks(state, books) {
     state.books = books;
-    console.log(state.books)
   },
   insertBook(state, book) {
     state.books.push(book);

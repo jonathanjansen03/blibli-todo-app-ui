@@ -9,7 +9,7 @@
       <router-link to="/books/manage" class="link-button">Manage Books</router-link>
       <router-link to="/cart" class="link-button">View Cart</router-link>
       <router-link to="/about" class="link-button">About</router-link>
-      <div class="x-btn" @click="toggleNavbar">x</div>
+      <div class="x-btn" @click="toggleNavbar"><BliIconClose fill="#ffffff" /></div>
     </div>
     <div class="toggle-navbar-btn" @click="toggleNavbar">
       <i class="fas fa-bars"></i>
@@ -93,6 +93,7 @@ nav {
         display: block;
         border-left: 0;
         text-align: left;
+        margin-left: 1rem;
       }
     }
 

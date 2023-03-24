@@ -5,8 +5,8 @@ import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  props: ["isBuyingBooks", "index"],
   name: "CardActionButtons",
+  props: ["isBuyingBooks", "index"],
   components: {
     BliButton,
     BliModal,

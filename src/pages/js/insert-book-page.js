@@ -4,6 +4,7 @@ import { BliField, BliInput } from "@blibli/dls/dist/components";
 import { mapActions } from "vuex";
 
 export default {
+  name: "InsertBookPage",
   components: {
     BliButton,
     BliCard,
@@ -11,7 +12,6 @@ export default {
     BliField,
     BliInput
   },
-  name: "InsertBookPage",
   data() {
     return {
       type: null,

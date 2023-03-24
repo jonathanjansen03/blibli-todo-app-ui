@@ -9,24 +9,6 @@ export default {
     BliCard,
     BliCardContent
   },
-  data() {
-    return {
-      tempCart: [
-        {
-          id: 1,
-          name: "Harry Potter",
-          price: 10000,
-          qty: 2
-        },
-        {
-          id: 2,
-          name: "Twilight",
-          price: 20000,
-          qty: 2
-        }
-      ],
-    }
-  },
   computed: {
     ...mapGetters("cart", ["cartItems"]),
     isCartEmpty() {

@@ -3,8 +3,8 @@ import CardActionButtons from "@/components/CardActionButtons.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  props: ["isBuyingBooks"],
   name: "BookCard",
+  props: ["isBuyingBooks"],
   components: {
     BliProduct,
     BliProductList,
