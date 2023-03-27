@@ -41,12 +41,12 @@ const mutations = {
   insertBook(state, book) {
     state.books.push(book);
   },
+  updateBook(state, book) {
+    const index = state.books.findIndex(b => b.id === book.id);
+    state.books[index] = book;
+  },
   deleteBook(state, index) {
     state.books.splice(index, 1);
-  },
-  changeStock(state, { id, qty }) {
-    const index = state.books.findIndex(book => book.id === id);
-    state.books[index].stock += qty;
   }
 };
 
@@ -90,8 +90,27 @@ const actions = {
 
     commit("deleteBook", index);
   },
-  changeStock({ commit }, { id, qty }) {
-    commit("changeStock", { id, qty });
+  updateBook({ commit }, { book, isOnlyUpdatingStock }) {
+    commit("updateBook", book);
+
+    if (isOnlyUpdatingStock) {
+      return;
+    }
+
+    const bookData = {
+      title: book.name,
+      author: book.seller.name,
+      stock: book.stock,
+      price: book.price.old ? book.price.old : book.price.final,
+      discount: 1 - (book.price.discount / 100)
+    };
+
+    axios
+      .put(api.updateBookAPI.api + book.id, bookData)
+      .catch(err => {
+        console.log(book)
+        alert("Error updating book. Please try again later. " + err);
+      });
   }
 };
 

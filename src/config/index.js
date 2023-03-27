@@ -53,6 +53,9 @@ const api = {
   insertBookAPI: {
     api: '/gdn-bookstore-api/books/insert'
   },
+  updateBookAPI: {
+    api: '/gdn-bookstore-api/books/update/'
+  },
   deleteBookAPI: {
     api: '/gdn-bookstore-api/books/delete/'
   },

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <BackButton :path="'/books/manage'" />
     <BliCard>
       <BliCardContent>
+        <BackButton :path="'/books/manage'" />
         <div v-if="isNotShowingResult" class="create-report-form">
           <h1 class="create-report-form__header">Create Report Form</h1>
           <BliDropdown v-model="month" selection autoclose>

@@ -5,7 +5,7 @@
         <h1 class="empty-cart-msg">There are no items in your cart.</h1>
       </div>
 
-      <table v-else class="cart-items">
+      <table v-if="!isCartEmpty" class="cart-items">
         <thead>
         <tr class="cart-items__headers">
           <th><h3>Book</h3></th>

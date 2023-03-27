@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     ...mapActions("cart", ["addToCart"]),
-    ...mapActions("book", ["changeStock"]),
+    ...mapActions("book", ["updateBook"]),
     minusClick() {
       this.minusBtnDisabled || (this.qty--);
     },
@@ -64,12 +64,15 @@ export default {
       this.isActive = true;
     },
     async addToCartClick() {
-      if (this.qty === 0) {
+      if (!this.qty) {
         alert("Please select quantity!");
         return;
       }
+
+      this.book.stock -= this.qty;
+      this.updateBook({ book: this.book, isOnlyUpdatingStock: true });
       await this.addToCart({ book: this.book, qty: this.qty});
-      await this.changeStock({id: this.book.id, qty: -this.qty})
+
       this.qty = 0;
       alert("Book added to cart!");
     }

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <BackButton :path="'/books/buy'" />
     <BliCard>
       <BliCardContent>
+        <BackButton :path="'/books/buy'" />
         <div class="book-detail">
           <img :src="book.imageUrl" alt="Book Image" class="book-detail__img">
           <div class="book-detail_info">

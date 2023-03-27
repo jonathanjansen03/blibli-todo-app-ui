@@ -16,7 +16,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("book", ["changeStock"]),
+    ...mapActions("book", ["updateBook"]),
     ...mapActions("cart", ["removeFromCart", "emptyCart"]),
     ...mapActions("transaction", ["insertTransaction"]),
     getTotalPrice() {
@@ -25,7 +25,8 @@ export default {
       }, 0);
     },
     async removeItem(index) {
-      await this.changeStock({id: this.cartItems[index].book.id, qty: this.cartItems[index].qty});
+      this.cartItems[index].book.stock += this.cartItems[index].qty;
+      await this.updateBook({ book: this.cartItems[index].book, isOnlyUpdatingStock: true })
       await this.removeFromCart(index);
       alert("Book removed from cart.");
     },
@@ -37,6 +38,11 @@ export default {
         };
       });
       await this.insertTransaction(transactions);
+      this.cartItems.forEach(item => {
+        this.updateBook({ book: item.book, isOnlyUpdatingStock: false });
+      });
+
+      alert("Your purchase is being processed and will be delivered soon!");
       this.emptyCart();
     }
   }
