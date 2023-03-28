@@ -4,6 +4,7 @@ import axios from "axios";
 const setBookData = book => {
   const authors = book.author.split(",");
   const isDiscountUndefined = book.discount === undefined;
+
   return {
     id: book.id,
     name: book.title,
@@ -54,6 +55,7 @@ const actions = {
   setBooks({ commit }, searchQuery) {
     const url = searchQuery === "" ? api.getAllBooksAPI.api :
       api.searchBookAPI.api + api.searchBookAPI.params.title + searchQuery;
+    
     axios
       .get(url)
       .then(res => {
@@ -69,7 +71,6 @@ const actions = {
       .post(api.insertBookAPI.api, book)
       .then(() => {
         dispatch("setBooks", "");
-        alert("Book added successfully!");
       })
       .catch(err => {
         alert("Error adding book. Please try again later. " + err);
@@ -81,9 +82,6 @@ const actions = {
   deleteBook({ commit, state }, index) {
     axios
       .delete(api.deleteBookAPI.api + state.books[index].id)
-      .then(() => {
-        alert("Book deleted successfully!");
-      })
       .catch(err => {
         alert("Error deleting book. Please try again later. " + err);
       });

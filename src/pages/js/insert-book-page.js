@@ -1,7 +1,8 @@
 import BackButton from "@/components/BackButton.vue";
 import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
-import { BliField, BliInput } from "@blibli/dls/dist/components";
+import { BliField } from "@blibli/dls/dist/components/field";
+import { BliInput } from "@blibli/dls/dist/components/input";
 import { mapActions } from "vuex";
 
 export default {
@@ -75,6 +76,7 @@ export default {
 
       if (isValidInputs) {
         await this.insertBook(this.book);
+        alert("Book added successfully!");
         this.reset();
       }
     }
