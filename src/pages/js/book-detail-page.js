@@ -1,9 +1,11 @@
 import BackButton from "@/components/BackButton.vue";
 import { BliButton } from "@blibli/dls/dist/components/button";
 import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
+import { BliField } from "@blibli/dls/dist/components/field";
 import BliIconPlus from "@blibli/blue-icon/dist/icons/Plus"
 import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
-import { BliField, BliInput, BliInputStepper } from "@blibli/dls/dist/components";
+import { BliInput } from "@blibli/dls/dist/components/input";
+import { BliInputStepper } from "@blibli/dls/dist/components/input-stepper";
 import {mapActions, mapGetters} from "vuex";
 
 export default {

@@ -3,51 +3,51 @@
     <h1 class="about__header my-2">About this project</h1>
     <BliCard border-radius="8px">
       <BliCardContent >
-        <div class="my-2">
-          <h2 class="text-align-left">Background</h2>
-          <BliCard class="bg-blue" border-radius="8px">
-            <BliCardContent class="text-align-justify">
+        <div class="about--my-2">
+          <h2 class="about--text-align-left">Background</h2>
+          <BliCard class="about--bg-blue" border-radius="8px">
+            <BliCardContent class="about--text-align-justify">
               This is a FrontEnd implementation of our mini project to test our skills and knowledge
               from our training for the last weeks we have been placed in the Blibli Enticement Squad.
               We hope that this website can become a solid foundation for our skills and knowledge to further
-              improve our skills and knowledge about Vue.js as a Framework based on Javascript.
+              improve our skills and knowledge about the Vue.js and Spring Boot frameworks.
             </BliCardContent>
           </BliCard>
         </div>
 
-        <div class="my-2">
-          <h2 class="text-align-left">Member</h2>
-          <BliCard class="bg-orange" border-radius="8px">
-            <BliCardContent class="text-align-justify">
+        <div class="about--my-2">
+          <h2 class="about--text-align-left">Members</h2>
+          <BliCard class="about--bg-orange" border-radius="8px">
+            <BliCardContent class="about--text-align-justify">
               <BliList>
-                <BliListItem value="">
+                <BliListContent>
                   Winston Adinata Kusumo
-                </BliListItem>
-                <BliListItem value="">
-                  Jonathan Janson Subroto
-                </BliListItem>
-                <BliListItem value="">
+                </BliListContent>
+                <BliListContent>
+                  Jonathan Jansen Subroto
+                </BliListContent>
+                <BliListContent>
                   Bryan Esten
-                </BliListItem>
+                </BliListContent>
               </BliList>
             </BliCardContent>
           </BliCard>
         </div>
 
-        <div class="my-2">
-          <h2 class="text-align-left">Purpose</h2>
-          <BliCard class="bg-green" border-radius="8px">
-            <BliCardContent class="text-align-justify">
+        <div class="about--my-2">
+          <h2 class="about--text-align-left">Purpose</h2>
+          <BliCard class="about--bg-green" border-radius="8px">
+            <BliCardContent class="about--text-align-justify">
               <BliList>
-                <BliListItem value="">
+                <BliListContent>
                   Skill and Knowledge
-                </BliListItem>
-                <BliListItem value="">
+                </BliListContent>
+                <BliListContent>
                   Collaboration and Teamwork
-                </BliListItem>
-                <BliListItem value="">
+                </BliListContent>
+                <BliListContent>
                   Resolve Problem and Search for Solution
-                </BliListItem>
+                </BliListContent>
               </BliList>
             </BliCardContent>
           </BliCard>
@@ -103,9 +103,19 @@
     color: $blu-gray-light-3;
   }
 
-  .button-doc {
-    margin-top: 5%;
-  }
+  &--my-2 { margin: 20px 0; }
+
+  &--bg-blue { background: $blu-blue-light-1; }
+
+  &--bg-orange { background: $blu-orange-light-1; }
+
+  &--bg-green { background: $blu-lime-light-1; }
+
+  &--text-align-left { text-align: left; }
+
+  &--text-black { color: black; }
+
+  &--text-align-justify { text-align: justify; }
 }
 @media (min-width: 1024px) {
   .about {

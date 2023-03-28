@@ -1,5 +1,5 @@
 import { BliButton } from "@blibli/dls/dist/components/button";
-import { BliModal, BliModalBody, BliModalHeader } from "@blibli/dls/dist/components";
+import { BliModal, BliModalBody, BliModalHeader } from "@blibli/dls/dist/components/modal";
 import BliIconPlus from "@blibli/blue-icon/dist/icons/Plus"
 import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
 import { mapActions, mapGetters } from "vuex";
@@ -10,8 +10,8 @@ export default {
   components: {
     BliButton,
     BliModal,
-    BliModalHeader,
     BliModalBody,
+    BliModalHeader,
     BliIconPlus,
     BliIconMinus
   },
@@ -33,6 +33,7 @@ export default {
           label: "Delete Forever",
           handler() {
             t.deleteBook(t.index);
+            alert("Book deleted successfully!");
             t.visibleModal = false;
           },
           color: "primary",
