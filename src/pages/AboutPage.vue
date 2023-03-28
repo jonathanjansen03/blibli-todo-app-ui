@@ -61,17 +61,18 @@
 
 <style lang="scss" scoped>
 @import "~@blibli/blue-tokens/dist/blue-tokens.scss";
+@import "~@blibli/dls/src/assets/scss/utils/_variable.scss";
 
 .bg-blue {
-  background: #0095DA;
+  background: $blue-light;
 }
 
 .bg-green {
-  background: #00B25A;
+  background: $green-light;
 }
 
 .bg-orange {
-  background: #F7931E;
+  background: $orange;
 }
 
 .text-align-left {
