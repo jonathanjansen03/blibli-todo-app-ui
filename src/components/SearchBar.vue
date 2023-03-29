@@ -12,6 +12,7 @@
 .blu-field {
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   input {
     width: 100%;

@@ -25,13 +25,45 @@ const setBookData = book => {
   };
 };
 
+const buildUrl = (params) => {
+  if (!params) {
+    return api.getAllBooksAPI.api;
+  }
+
+  const titleParam = params?.title === undefined ? "" :
+    api.searchBookAPI.params.title + params.title;
+  const pageParam = params?.page === undefined ? "" :
+    api.searchBookAPI.params.page + params.page;
+  let url = api.searchBookAPI.api + titleParam;
+
+  if (pageParam !== "") {
+    if (titleParam !== "") {
+      url += "&";
+    }
+    url += pageParam;
+  }
+
+  return url;
+}
+
 const state = {
-  books: []
+  books: [],
+  pagination: {},
+  params: {
+    title: "",
+    page: 0
+  }
 };
 
 const getters = {
   books(state) {
     return state.books;
+  },
+  pagination(state) {
+    return state.pagination;
+  },
+  params(state) {
+    return state.params;
   }
 };
 
@@ -48,19 +80,36 @@ const mutations = {
   },
   deleteBook(state, index) {
     state.books.splice(index, 1);
+  },
+  setPagination(state, pagination) {
+    state.pagination = {
+      ...state.pagination,
+      ...pagination
+    };
+  },
+  setParams(state, params) {
+    state.params = {
+      ...state.params,
+      ...params
+    };
   }
 };
 
 const actions = {
-  setBooks({ commit }, searchQuery) {
-    const url = searchQuery === "" ? api.getAllBooksAPI.api :
-      api.searchBookAPI.api + api.searchBookAPI.params.title + searchQuery;
-    
+  setBooks({ commit }, params) {
+    const url = buildUrl(params);
+
     axios
       .get(url)
       .then(res => {
-        const books = res.data.map(book => setBookData(book));
+        const books = res.data.content.map(book => setBookData(book));
+        const pagination = {
+          totalItems: res.data.totalElements,
+          size: res.data.size,
+        };
+
         commit("setBooks", books);
+        commit("setPagination", pagination);
       })
       .catch(err => {
         alert("Error while fetching books data. Please try again later. " + err);
@@ -106,9 +155,11 @@ const actions = {
     axios
       .put(api.updateBookAPI.api + book.id, bookData)
       .catch(err => {
-        console.log(book)
         alert("Error updating book. Please try again later. " + err);
       });
+  },
+  setParams({ commit }, params) {
+    commit("setParams", params);
   }
 };
 

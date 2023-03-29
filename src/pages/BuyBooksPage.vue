@@ -1,20 +1,22 @@
 <template>
   <div>
-    <SearchBar />
+    <div ref="searchInput">
+      <SearchBar />
+    </div>
     <BookCard :is-buying-books="true" />
+    <BliPagination
+      v-if="books.length"
+      :total="pagination.totalItems"
+      :current.sync="currentPage"
+      :per-page="pagination.size"
+    >
+    </BliPagination>
   </div>
 </template>
 
 <script src="./js/buy-books-page.js"></script>
 
 <style lang="scss" scoped>
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
 .blu-field {
   display: flex;
   flex-direction: row;
@@ -36,5 +38,10 @@ div {
   button {
     margin: 1rem 0 0 1rem;
   }
+}
+
+.blu-paging {
+  display: flex;
+  justify-content: center;
 }
 </style>

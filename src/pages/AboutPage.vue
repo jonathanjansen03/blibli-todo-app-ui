@@ -1,6 +1,6 @@
 <template>
   <div class="about blu">
-    <h1 class="about__header my-2">About this project</h1>
+    <h1 class="about__header about--my-2">About this project</h1>
     <BliCard border-radius="8px">
       <BliCardContent >
         <div class="about--my-2">

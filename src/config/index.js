@@ -48,7 +48,10 @@ const api = {
   },
   searchBookAPI: {
     api: '/gdn-bookstore-api/books?',
-    params: { title: 'title=' }
+    params: {
+      title: 'title=',
+      page: 'page='
+    }
   },
   insertBookAPI: {
     api: '/gdn-bookstore-api/books/insert'
