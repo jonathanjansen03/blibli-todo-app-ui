@@ -6,7 +6,7 @@ import BliIconPlus from "@blibli/blue-icon/dist/icons/Plus"
 import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
 import { BliInput } from "@blibli/dls/dist/components/input";
 import { BliInputStepper } from "@blibli/dls/dist/components/input-stepper";
-import {mapActions, mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "BookDetailPage",
@@ -60,7 +60,8 @@ export default {
       this.plusBtnDisabled || (this.qty++);
     },
     blurInput() {
-      this.qty >= this.max && (this.qty = this.max) ? this.qty < this.min && (this.qty = this.min) : this.isActive = false;
+      this.qty >= this.max && (this.qty = this.max) ?
+        this.qty < this.min && (this.qty = this.min) : this.isActive = false;
     },
     focusInput() {
       this.isActive = true;
@@ -72,7 +73,7 @@ export default {
       }
 
       this.book.stock -= this.qty;
-      this.updateBook({ book: this.book, isOnlyUpdatingStock: true });
+      await this.updateBook({ book: this.book, isOnlyUpdatingStock: true });
       await this.addToCart({ book: this.book, qty: this.qty});
 
       this.qty = 0;

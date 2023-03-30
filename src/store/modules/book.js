@@ -17,9 +17,9 @@ const setBookData = book => {
       "2hd": false
     },
     price: {
-      final: book.price,
-      old: isDiscountUndefined || book.discount === 1 ? null : book.price / book.discount,
-      discount: isDiscountUndefined ? 0 : (1 - book.discount) * 100
+      final: book.price - (book.price * book.discount),
+      old: isDiscountUndefined || book.discount === 0 ? null : book.price,
+      discount: isDiscountUndefined ? 0 : book.discount * 100
     },
     stock: book.stock
   };
@@ -69,14 +69,17 @@ const getters = {
 
 const mutations = {
   setBooks(state, books) {
-    state.books = books;
+    state.books = books.slice(0);
   },
   insertBook(state, book) {
     state.books.push(book);
   },
   updateBook(state, book) {
     const index = state.books.findIndex(b => b.id === book.id);
-    state.books[index] = book;
+    state.books[index] = {
+      ...state.books[index],
+      ...book
+    };
   },
   deleteBook(state, index) {
     state.books.splice(index, 1);
@@ -120,6 +123,7 @@ const actions = {
       .post(api.insertBookAPI.api, book)
       .then(() => {
         dispatch("setBooks", "");
+        alert("Book added successfully!");
       })
       .catch(err => {
         alert("Error adding book. Please try again later. " + err);
@@ -131,11 +135,13 @@ const actions = {
   deleteBook({ commit, state }, index) {
     axios
       .delete(api.deleteBookAPI.api + state.books[index].id)
+      .then(() => {
+        commit("deleteBook", index);
+        alert("Book deleted successfully!");
+      })
       .catch(err => {
         alert("Error deleting book. Please try again later. " + err);
       });
-
-    commit("deleteBook", index);
   },
   updateBook({ commit }, { book, isOnlyUpdatingStock }) {
     commit("updateBook", book);
@@ -144,16 +150,19 @@ const actions = {
       return;
     }
 
-    const bookData = {
+    const bookData =  {
       title: book.name,
       author: book.seller.name,
       stock: book.stock,
       price: book.price.old ? book.price.old : book.price.final,
-      discount: 1 - (book.price.discount / 100)
+      discount: book.price.discount / 100
     };
 
     axios
       .put(api.updateBookAPI.api + book.id, bookData)
+      .then(() => {
+        alert("Book updated successfully!");
+      })
       .catch(err => {
         alert("Error updating book. Please try again later. " + err);
       });

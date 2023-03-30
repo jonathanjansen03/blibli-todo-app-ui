@@ -42,6 +42,12 @@ const routes = [
     meta: { title: `${app.title.base} - ${app.title.insertBook}` }
   },
   {
+    path: pages.updateBook,
+    name: app.routerName.updateBook,
+    component: () => import('../pages/UpdateBookPage.vue'),
+    meta: { title: `${app.title.base} - ${app.title.updateBook}` }
+  },
+  {
     path: pages.bookDetail,
     name: app.routerName.bookDetail,
     component: () => import('../pages/BookDetailPage.vue'),

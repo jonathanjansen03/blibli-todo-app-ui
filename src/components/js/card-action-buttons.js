@@ -33,7 +33,6 @@ export default {
           label: "Delete Forever",
           handler() {
             t.deleteBook(t.index);
-            alert("Book deleted successfully!");
             t.visibleModal = false;
           },
           color: "primary",

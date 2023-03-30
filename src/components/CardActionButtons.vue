@@ -2,7 +2,7 @@
   <div class="card-action-buttons">
     <div v-if="isBuyingBooks">
       <div>
-        <router-link :to="/books/ + bookId">
+        <router-link :to="`/books/${bookId}`">
           <BliButton color="secondary" size="small">View Details</BliButton>
         </router-link>
       </div>
@@ -23,7 +23,9 @@
       </BliModal>
 
       <div class="card-action-buttons__btn-container">
-        <BliButton class="modal__update-btn" color="secondary" size="small">Update</BliButton>
+        <router-link :to="`/books/update/${bookId}`">
+          <BliButton class="modal__update-btn" color="secondary" size="small">Update</BliButton>
+        </router-link>
         <BliButton
           class="modal__delete-btn"
           outline

@@ -6,6 +6,7 @@ const app = {
     cart: 'cart',
     about: 'about',
     insertBook: 'insertBook',
+    updateBook: 'updateBook',
     createReport: 'createReport',
     bookDetail: 'bookDetail'
   },
@@ -17,6 +18,7 @@ const app = {
     cart: 'Cart',
     about: 'About',
     insertBook: 'Insert Book',
+    updateBook: 'Update Book',
     createReport: 'Create Report',
     bookDetail: 'Book Detail'
   }
@@ -29,6 +31,7 @@ const pages = {
   cart: '/cart',
   about: '/about',
   insertBook: '/books/insert',
+  updateBook: '/books/update/:id',
   createReport: '/reports',
   bookDetail: '/books/:id'
 }
