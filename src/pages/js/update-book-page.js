@@ -37,7 +37,7 @@ export default {
 
       return {
         title: book.name,
-        author: book.seller.name,
+        author: book.seller.list,
         stock: book.stock,
         price: book.price.old ?? book.price.final,
         discount: book.price.discount
@@ -103,6 +103,7 @@ export default {
       };
 
       await this.updateBook({ book: updatedBook });
+      alert("Book updated successfully!");
     }
   }
 };

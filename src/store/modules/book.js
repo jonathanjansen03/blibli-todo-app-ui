@@ -10,6 +10,7 @@ const setBookData = book => {
     name: book.title,
     imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 80)}/800`,
     seller: {
+      list: book.author,
       name: authors.length > 1 ? authors[0] + " et al." : authors[0]
     },
     features: {
@@ -160,9 +161,6 @@ const actions = {
 
     axios
       .put(api.updateBookAPI.api + book.id, bookData)
-      .then(() => {
-        alert("Book updated successfully!");
-      })
       .catch(err => {
         alert("Error updating book. Please try again later. " + err);
       });

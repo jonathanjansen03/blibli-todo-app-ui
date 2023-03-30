@@ -7,7 +7,7 @@
           <img :src="book.imageUrl" alt="Book Image" class="book-detail__img">
           <div class="book-detail_info">
             <h2 class="book-detail__name">{{ book.name }}</h2>
-            <p>Author(s): {{ book.seller.name }}</p>
+            <p>Author(s): {{ book.seller.list }}</p>
             <p>Price: IDR {{ book.price.final }}</p>
             <p>Stock: {{ book.stock }}</p>
           </div>

@@ -35,27 +35,7 @@ export default {
         value: 2020,
         text: 2020
       },
-      isNotShowingResult: true,
-      tempTransactions: [
-        {
-          id: 1,
-          book: {
-            id: 1,
-            name: "Harry Potter",
-            price: { final: 20000 }
-          },
-          qty: 3
-        },
-        {
-          id: 2,
-          book: {
-            id: 2,
-            name: "Twilight",
-            price: { final: 10000 }
-          },
-          qty: 5
-        }
-      ]
+      isNotShowingResult: true
     };
   },
   computed: {
