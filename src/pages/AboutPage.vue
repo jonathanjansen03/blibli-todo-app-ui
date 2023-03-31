@@ -60,7 +60,6 @@
 <script src="./js/about-page.js"></script>
 
 <style lang="scss" scoped>
-@import "~@blibli/blue-tokens/dist/blue-tokens.scss";
 @import "~@blibli/dls/src/assets/scss/utils/_variable.scss";
 
 .text-align-left {
@@ -94,15 +93,15 @@
   &--my-2 { margin: 20px 0; }
 
   &--bg-blue {
-    background: $blue-light;
-  }
-
-  &--bg-green {
-    background: $green-light;
+    background: $blue-light-1;
   }
 
   &--bg-orange {
-    background: $orange;
+    background: $orange-light-1;
+  }
+
+  &--bg-green {
+    background: $lime-light-1;
   }
 
   &--text-align-left { text-align: left; }
