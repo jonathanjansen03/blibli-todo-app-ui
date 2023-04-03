@@ -104,7 +104,6 @@ const mutations = {
 const actions = {
   setBooks({ commit }, params) {
     const url = buildUrl(params);
-    console.log(url)
 
     axios
       .get(url)

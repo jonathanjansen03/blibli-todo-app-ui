@@ -28,6 +28,8 @@ nav {
   margin-bottom: 5rem;
   padding: 3rem 2rem 1rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 
   .logo-wrapper {
     width: 12rem;
