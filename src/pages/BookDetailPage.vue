@@ -1,38 +1,36 @@
 <template>
-  <div>
-    <BliCard>
-      <BliCardContent>
-        <BackButton :path="'/books/buy'" />
-        <div class="book-detail">
-          <img :src="book.imageUrl" alt="Book Image" class="book-detail__img">
-          <div class="book-detail_info">
-            <h2 class="book-detail__name">{{ book.name }}</h2>
-            <p>Author(s): {{ book.seller.list }}</p>
-            <p>Price: IDR {{ book.price.final }}</p>
-            <p>Stock: {{ book.stock }}</p>
-          </div>
-          <div class="dev-input-stepper__wrapper">
-            <BliInputStepper :isActive="false">
-              <BliButton slot="minus-button" class="blu-input-stepper__minus" :disabled="minusBtnDisabled"
-                         @click="minusClick">
-                <BliIconMinus fill="#0095DA" />
-              </BliButton>
-              <BliField slot="input-stepper" class="blu-input-stepper__input">
-                <BliInput type="number" v-model.number="qty" @blur="blurInput" @focus="focusInput" />
-              </BliField>
-              <BliButton slot="plus-button" class="blu-input-stepper__plus" :disabled="plusBtnDisabled"
-                         @click="plusClick">
-                <BliIconPlus fill="#0095DA" />
-              </BliButton>
-            </BliInputStepper>
-          </div>
-          <BliButton color="primary" size="large" @click="addToCartClick">
-            Add to Cart
-          </BliButton>
+  <BliCard>
+    <BliCardContent>
+      <BackButton :path="'/books/buy'" />
+      <div class="book-detail">
+        <img :src="book.imageUrl" alt="Book Image" class="book-detail__img">
+        <div class="book-detail_info">
+          <h2 class="book-detail__name">{{ book.name }}</h2>
+          <p>Author(s): {{ book.seller.list }}</p>
+          <p>Price: IDR {{ book.price.final }}</p>
+          <p>Stock: {{ book.stock }}</p>
         </div>
-      </BliCardContent>
-    </BliCard>
-  </div>
+        <div class="dev-input-stepper__wrapper">
+          <BliInputStepper :isActive="false">
+            <BliButton slot="minus-button" class="blu-input-stepper__minus" :disabled="minusBtnDisabled"
+                       @click="minusClick">
+              <BliIconMinus fill="#0095DA" />
+            </BliButton>
+            <BliField slot="input-stepper" class="blu-input-stepper__input">
+              <BliInput type="number" v-model.number="qty" @blur="blurInput" @focus="focusInput" />
+            </BliField>
+            <BliButton slot="plus-button" class="blu-input-stepper__plus" :disabled="plusBtnDisabled"
+                       @click="plusClick">
+              <BliIconPlus fill="#0095DA" />
+            </BliButton>
+          </BliInputStepper>
+        </div>
+        <BliButton color="primary" size="large" @click="addToCartClick">
+          Add to Cart
+        </BliButton>
+      </div>
+    </BliCardContent>
+  </BliCard>
 </template>
 
 <script src="./js/book-detail-page.js"></script>

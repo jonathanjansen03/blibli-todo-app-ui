@@ -7,7 +7,7 @@
         </router-link>
       </div>
     </div>
-    <div v-else>
+    <div v-if="!isBuyingBooks">
       <BliModal
         class="modal"
         type="warning"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isEmpty"><h1 class="no-books-msg">There are no books.</h1></div>
-    <div v-else class="dev-single-product">
+    <div v-if="!isEmpty" class="dev-single-product">
       <Component :is="bliProductList()" type="grid-view" class="books-grid">
         <Component
           v-for="(book, index) in books"
