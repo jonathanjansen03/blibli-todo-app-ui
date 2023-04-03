@@ -34,13 +34,13 @@ export default {
   },
   watch: {
     async currentPage() {
-      this.setParams({ page: this.currentPage - 1 });
+      this.setParams({ page: this.currentPage });
       await this.setBooks(this.params);
       this.initFocus()
     }
   },
   async beforeMount() {
-    this.setParams({ title: "", page: 0 });
+    this.setParams({ title: "", page: 1 });
     await this.setBooks(null);
   }
 };
