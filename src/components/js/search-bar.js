@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions("book", ["setBooks", "setParams"]),
     async handleSearch() {
-      this.setParams({ title: this.searchQuery, page: 0 });
+      this.setParams({ title: this.searchQuery, page: 1 });
       await this.setBooks(this.params);
     }
   }

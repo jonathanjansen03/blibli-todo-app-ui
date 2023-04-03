@@ -49,7 +49,9 @@ const buildUrl = (params) => {
 
 const state = {
   books: [],
-  pagination: {},
+  pagination: {
+    size: 25,
+  },
   params: {
     title: "",
     page: 0
@@ -102,14 +104,14 @@ const mutations = {
 const actions = {
   setBooks({ commit }, params) {
     const url = buildUrl(params);
+    console.log(url)
 
     axios
       .get(url)
       .then(res => {
-        const books = res.data.content.map(book => setBookData(book));
+        const books = res.data.bookList.map(book => setBookData(book));
         const pagination = {
-          totalItems: res.data.totalElements,
-          size: res.data.size,
+          totalItems: res.data.documentCount
         };
 
         commit("setBooks", books);
