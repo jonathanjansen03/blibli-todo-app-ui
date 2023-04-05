@@ -1,27 +1,27 @@
-import { BliProduct, BliProductList } from "@blibli/dls/dist/add-ons/product"
-import CardActionButtons from "@/components/CardActionButtons.vue";
-import { mapGetters } from "vuex";
+import { BliProduct, BliProductList } from '@blibli/dls/dist/add-ons/product'
+import CardActionButtons from '@/components/CardActionButtons.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "BookCard",
-  props: ["isBuyingBooks"],
+  name: 'BookCard',
+  props: ['isBuyingBooks'],
   components: {
     BliProduct,
     BliProductList,
     CardActionButtons
   },
   computed: {
-    ...mapGetters("book", ["books"]),
+    ...mapGetters('book', ['books']),
     isEmpty() {
-      return !this.books.length;
+      return !this.books.length
     }
   },
   methods: {
     bliProductList() {
-      return BliProductList;
+      return BliProductList
     },
     bliProduct() {
-      return BliProduct;
+      return BliProduct
     }
   }
-};
+}

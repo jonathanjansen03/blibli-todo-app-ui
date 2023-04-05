@@ -1,5 +1,5 @@
-import AppFooter from "@/components/AppFooter.vue";
-import NavigationBar from "@/components/NavigationBar.vue";
+import AppFooter from '@/components/AppFooter.vue'
+import NavigationBar from '@/components/NavigationBar.vue'
 
 export default {
   components: {

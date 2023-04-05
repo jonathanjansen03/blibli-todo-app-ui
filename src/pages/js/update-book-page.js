@@ -1,12 +1,12 @@
-import BackButton from "@/components/BackButton.vue";
-import { BliButton } from "@blibli/dls/dist/components/button";
-import { BliCard, BliCardContent } from "@blibli/dls/dist/components/card";
-import { BliField } from "@blibli/dls/dist/components/field";
-import { BliInput } from "@blibli/dls/dist/components/input";
-import { mapActions, mapGetters } from "vuex";
+import BackButton from '@/components/BackButton.vue'
+import { BliButton } from '@blibli/dls/dist/components/button'
+import { BliCard, BliCardContent } from '@blibli/dls/dist/components/card'
+import { BliField } from '@blibli/dls/dist/components/field'
+import { BliInput } from '@blibli/dls/dist/components/input'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "UpdateBookPage",
+  name: 'UpdateBookPage',
   components: {
     BackButton,
     BliButton,
@@ -18,22 +18,22 @@ export default {
   data() {
     return {
       helperMessage: {
-        title: "Title must be 50 characters max.",
-        author: "Author must be 50 characters max.",
-        stock: "Stock must be between 1 and 100 (inclusive).",
-        price: "Price is in IDR and must be between 1000 and 1000000 (inclusive).",
-        discount: "Discount is in percentage and must be between 0 and 100 (inclusive)."
+        title: 'Title must be 50 characters max.',
+        author: 'Author must be 50 characters max.',
+        stock: 'Stock must be between 1 and 100 (inclusive).',
+        price: 'Price is in IDR and must be between 35000 and 1000000 (inclusive).',
+        discount: 'Discount is in percentage and must be between 0 and 100 (inclusive).'
       },
-      bookId: window.location.pathname.split("/")[3],
+      bookId: window.location.pathname.split('/')[3],
     }
   },
   computed: {
-    ...mapGetters("book", ["books"]),
+    ...mapGetters('book', ['books']),
     bookIndex() {
-      return this.books.findIndex(b => b.id === this.bookId);
+      return this.books.findIndex(b => b.id === this.bookId)
     },
     book() {
-      const book = this.books[this.bookIndex];
+      const book = this.books[this.bookIndex]
 
       return {
         title: book.name,
@@ -41,51 +41,49 @@ export default {
         stock: book.stock,
         price: book.price.old ?? book.price.final,
         discount: book.price.discount
-      };
+      }
     },
     isAllFieldFilled() {
-      return this.book.title && this.book.author && this.book.stock && this.book.price;
+      return this.book.title && this.book.author && this.book.stock && this.book.price
     },
     isValidStock() {
-      return this.book.stock >= 1 && this.book.stock <= 100;
+      return this.book.stock >= 1 && this.book.stock <= 100
     },
     isValidPrice() {
-      return this.book.price >= 1000 && this.book.price <= 1000000;
+      return this.book.price >= 1000 && this.book.price <= 1000000
     },
     isValidDiscount() {
-      return this.book.discount >= 0 && this.book.discount <= 100;
+      return this.book.discount >= 0 && this.book.discount <= 100
     }
   },
   methods: {
-    ...mapActions("book", ["updateBook"]),
-    validateInputs() {
+    ...mapActions('book', ['updateBook']),
+    isValidInputs() {
       if (!this.isAllFieldFilled) {
-        alert("Please fill all the fields.");
-        return false;
+        alert('Please fill all the fields.')
+        return false
       }
 
       if (!this.isValidStock) {
-        alert("Stock should be between 1 and 100 (inclusive).");
-        return false;
+        alert('Stock should be between 1 and 100 (inclusive).')
+        return false
       }
 
       if (!this.isValidPrice) {
-        alert("Price should be between 1000 and 1000000 (inclusive).");
-        return false;
+        alert('Price should be between 1000 and 1000000 (inclusive).')
+        return false
       }
 
       if (!this.isValidDiscount) {
-        alert("Discount should be between 0 and 100 (inclusive).");
-        return false;
+        alert('Discount should be between 0 and 100 (inclusive).')
+        return false
       }
 
-      return true;
+      return true
     },
     async handleSubmit() {
-      const isValidInputs = this.validateInputs();
-
-      if (!isValidInputs) {
-        return;
+      if (!this.isValidInputs()) {
+        return
       }
 
       const updatedBook = {
@@ -100,10 +98,10 @@ export default {
           old: this.book.price,
           discount: this.book.discount
         }
-      };
+      }
 
-      await this.updateBook({ book: updatedBook });
-      alert("Book updated successfully!");
+      await this.updateBook({ book: updatedBook })
+      alert('Book updated successfully!')
     }
   }
-};
+}

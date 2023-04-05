@@ -1,7 +1,7 @@
-import { BliButton } from "@blibli/dls/dist/components/button";
+import { BliButton } from '@blibli/dls/dist/components/button'
 
 export default {
-  name: "BackButton",
+  name: 'BackButton',
   props: {
     path: {
       type: String,
@@ -15,4 +15,4 @@ export default {
   components: {
     BliButton
   }
-};
+}

@@ -1,12 +1,12 @@
-import { BliButton } from "@blibli/dls/dist/components/button";
-import { BliModal, BliModalBody, BliModalHeader } from "@blibli/dls/dist/components/modal";
-import BliIconPlus from "@blibli/blue-icon/dist/icons/Plus"
-import BliIconMinus from "@blibli/blue-icon/dist/icons/Minus"
-import { mapActions, mapGetters } from "vuex";
+import { BliButton } from '@blibli/dls/dist/components/button'
+import { BliModal, BliModalBody, BliModalHeader } from '@blibli/dls/dist/components/modal'
+import BliIconPlus from '@blibli/blue-icon/dist/icons/Plus'
+import BliIconMinus from '@blibli/blue-icon/dist/icons/Minus'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "CardActionButtons",
-  props: ["isBuyingBooks", "index"],
+  name: 'CardActionButtons',
+  props: ['isBuyingBooks', 'index'],
   components: {
     BliButton,
     BliModal,
@@ -16,38 +16,38 @@ export default {
     BliIconMinus
   },
   data() {
-    const t = this;
+    const t = this
     return {
       bookQuantity: 0,
       visibleModal: false,
       customControls: [
         {
-          label: "Cancel",
+          label: 'Cancel',
           handler() {
-            t.visibleModal = false;
+            t.visibleModal = false
           },
-          color: "secondary",
+          color: 'secondary',
           outline: true
         },
         {
-          label: "Delete Forever",
+          label: 'Delete Forever',
           handler() {
-            t.deleteBook(t.index);
-            t.visibleModal = false;
+            t.deleteBook(t.index)
+            t.visibleModal = false
           },
-          color: "primary",
+          color: 'primary',
           outline: false
         }
       ]
-    };
+    }
   },
   computed: {
-    ...mapGetters("book", ["books"]),
+    ...mapGetters('book', ['books']),
     bookId() {
-      return this.books[this.index].id;
+      return this.books[this.index].id
     }
   },
   methods: {
-    ...mapActions("book", ["deleteBook"])
+    ...mapActions('book', ['deleteBook'])
   }
-};
+}

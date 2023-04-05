@@ -1,9 +1,9 @@
-import { api } from "@/config";
-import axios from "axios";
+import { api } from '@/config'
+import axios from 'axios'
 
 const setBookData = book => {
-  const authors = book.author.split(",");
-  const isDiscountUndefined = book.discount === undefined;
+  const authors = book.author.split(',')
+  const isDiscountUndefined = book.discount === undefined
 
   return {
     id: book.id,
@@ -11,40 +11,40 @@ const setBookData = book => {
     imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 80)}/800`,
     seller: {
       list: book.author,
-      name: authors.length > 1 ? authors[0] + " et al." : authors[0]
+      name: authors.length > 1 ? authors[0] + ' et al.' : authors[0]
     },
     features: {
-      feature: "",
-      "2hd": false
+      feature: '',
+      '2hd': false
     },
     price: {
       final: book.price - (book.price * book.discount),
-      old: isDiscountUndefined || book.discount === 0 ? null : book.price,
+      old: isDiscountUndefined || book.discount ? book.price : null,
       discount: isDiscountUndefined ? 0 : book.discount * 100
     },
     stock: book.stock
-  };
-};
+  }
+}
 
 const buildUrl = (params) => {
   if (!params) {
-    return api.getAllBooksAPI.api;
+    return api.getAllBooksAPI.api
   }
 
-  const titleParam = params?.title === undefined ? "" :
-    api.searchBookAPI.params.title + params.title;
-  const pageParam = params?.page === undefined ? "" :
-    api.searchBookAPI.params.page + params.page;
-  let url = api.searchBookAPI.api + titleParam;
+  const titleParam = params?.title === undefined ? '' :
+    api.searchBookAPI.params.title + params.title
+  const pageParam = params?.page === undefined ? '' :
+    api.searchBookAPI.params.page + params.page
+  let url = api.searchBookAPI.api + titleParam
 
-  if (pageParam !== "") {
-    if (titleParam !== "") {
-      url += "&";
+  if (pageParam !== '') {
+    if (titleParam !== '') {
+      url += '&'
     }
-    url += pageParam;
+    url += pageParam
   }
 
-  return url;
+  return url
 }
 
 const state = {
@@ -53,103 +53,102 @@ const state = {
     size: 25,
   },
   params: {
-    title: "",
+    title: '',
     page: 0
   }
-};
+}
 
 const getters = {
   books(state) {
-    return state.books;
+    return state.books
   },
   pagination(state) {
-    return state.pagination;
+    return state.pagination
   },
   params(state) {
-    return state.params;
+    return state.params
   }
-};
+}
 
 const mutations = {
   setBooks(state, books) {
-    state.books = books.slice(0);
+    state.books = books.slice(0)
   },
   insertBook(state, book) {
-    state.books.push(book);
+    state.books.push(book)
   },
   updateBook(state, book) {
-    const index = state.books.findIndex(b => b.id === book.id);
+    const index = state.books.findIndex(b => b.id === book.id)
     state.books[index] = {
       ...state.books[index],
       ...book
-    };
+    }
   },
   deleteBook(state, index) {
-    state.books.splice(index, 1);
+    state.books.splice(index, 1)
   },
   setPagination(state, pagination) {
     state.pagination = {
       ...state.pagination,
       ...pagination
-    };
+    }
   },
   setParams(state, params) {
     state.params = {
       ...state.params,
       ...params
-    };
+    }
   }
-};
+}
 
 const actions = {
   setBooks({ commit }, params) {
-    const url = buildUrl(params);
+    const url = buildUrl(params)
 
     axios
       .get(url)
       .then(res => {
-        const books = res.data.bookList.map(book => setBookData(book));
+        const books = res.data.bookList.map(book => setBookData(book))
         const pagination = {
           totalItems: res.data.documentCount
-        };
+        }
 
-        commit("setBooks", books);
-        commit("setPagination", pagination);
+        commit('setBooks', books)
+        commit('setPagination', pagination)
       })
       .catch(err => {
-        alert("Error while fetching books data. Please try again later. " + err);
-      });
+        alert('Error while fetching books data. Please try again later. ' + err)
+      })
   },
-  insertBook({ commit, dispatch }, book) {
+  insertBook({ commit }, book) {
     axios
       .post(api.insertBookAPI.api, book)
       .then(() => {
-        dispatch("setBooks", "");
-        alert("Book added successfully!");
+        alert('Book added successfully!')
       })
       .catch(err => {
-        alert("Error adding book. Please try again later. " + err);
-      });
+        alert('Error adding book. Please try again later. ' + err)
+      })
 
-    const newBook = setBookData(book);
-    commit("insertBook", newBook);
+    const newBook = setBookData(book)
+    commit('insertBook', newBook)
   },
   deleteBook({ commit, state }, index) {
     axios
       .delete(api.deleteBookAPI.api + state.books[index].id)
       .then(() => {
-        commit("deleteBook", index);
-        alert("Book deleted successfully!");
+        commit('deleteBook', index)
+        alert('Book deleted successfully!')
       })
       .catch(err => {
-        alert("Error deleting book. Please try again later. " + err);
-      });
+        alert('Error deleting book. Please try again later. ' + err)
+      })
   },
   updateBook({ commit }, { book, isOnlyUpdatingStock }) {
-    commit("updateBook", book);
+    commit('updateBook', book)
 
     if (isOnlyUpdatingStock) {
-      return;
+      return
     }
 
     const bookData =  {
@@ -158,18 +157,18 @@ const actions = {
       stock: book.stock,
       price: book.price.old ? book.price.old : book.price.final,
       discount: book.price.discount / 100
-    };
+    }
 
     axios
       .put(api.updateBookAPI.api + book.id, bookData)
       .catch(err => {
-        alert("Error updating book. Please try again later. " + err);
-      });
+        alert('Error updating book. Please try again later. ' + err)
+      })
   },
   setParams({ commit }, params) {
-    commit("setParams", params);
+    commit('setParams', params)
   }
-};
+}
 
 export default {
   namespaced: true,
@@ -177,4 +176,4 @@ export default {
   getters,
   actions,
   mutations
-};
+}

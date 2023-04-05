@@ -1,21 +1,21 @@
-import axios from "axios";
-import { api } from "@/config";
+import axios from 'axios'
+import { api } from '@/config'
 
 const state = {
   transactions: []
-};
+}
 
 const getters = {
   transactions(state) {
-    return state.transactions;
+    return state.transactions
   }
-};
+}
 
 const mutations = {
   insertTransaction(state, transaction) {
-    state.transactions = transaction.slice(0);
+    state.transactions = transaction.slice(0)
   }
-};
+}
 
 const actions = {
   // eslint-disable-next-line no-unused-vars
@@ -24,25 +24,25 @@ const actions = {
       axios
         .post(api.insertTransactionAPI.api, transaction)
         .catch(err => {
-          alert("Error making transaction. Please try again later. " + err);
-        });
-    });
+          alert('Error making transaction. Please try again later. ' + err)
+        })
+    })
   },
   getTransactions({ commit }, { month, year }) {
     const url = api.getTransactionsReportAPI.api +
-      api.getTransactionsReportAPI.params.month + month + "&" +
-      api.getTransactionsReportAPI.params.year + year;
+      api.getTransactionsReportAPI.params.month + month + '&' +
+      api.getTransactionsReportAPI.params.year + year
 
     axios
       .get(url)
       .then(res => {
-        commit("insertTransaction", res.data);
+        commit('insertTransaction', res.data)
       })
       .catch(err => {
-        alert("Error while fetching transactions data. Please try again later. " + err);
-      });
+        alert('Error while fetching transactions data. Please try again later. ' + err)
+      })
   }
-};
+}
 
 export default {
   namespaced: true,
@@ -50,4 +50,4 @@ export default {
   getters,
   actions,
   mutations
-};
+}

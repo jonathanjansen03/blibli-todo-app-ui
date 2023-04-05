@@ -1,11 +1,11 @@
-import { BliButton } from "@blibli/dls/dist/components/button";
-import { BliField } from "@blibli/dls/dist/components/field";
-import BliIconSearch from "@blibli/blue-icon/dist/icons/Search"
-import { BliInput } from "@blibli/dls/dist/components/input";
-import { mapActions, mapGetters } from "vuex";
+import { BliButton } from '@blibli/dls/dist/components/button'
+import { BliField } from '@blibli/dls/dist/components/field'
+import BliIconSearch from '@blibli/blue-icon/dist/icons/Search'
+import { BliInput } from '@blibli/dls/dist/components/input'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "SearchBar",
+  name: 'SearchBar',
   components: {
     BliButton,
     BliField,
@@ -14,17 +14,17 @@ export default {
   },
   data() {
     return {
-      searchQuery: ""
-    };
+      searchQuery: ''
+    }
   },
   computed: {
-    ...mapGetters("book", ["params"])
+    ...mapGetters('book', ['params'])
   },
   methods: {
-    ...mapActions("book", ["setBooks", "setParams"]),
+    ...mapActions('book', ['setBooks', 'setParams']),
     async handleSearch() {
-      this.setParams({ title: this.searchQuery, page: 1 });
-      await this.setBooks(this.params);
+      this.setParams({ title: this.searchQuery, page: 1 })
+      await this.setBooks(this.params)
     }
   }
-};
+}
