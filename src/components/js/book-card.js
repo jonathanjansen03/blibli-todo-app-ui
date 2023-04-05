@@ -13,7 +13,7 @@ export default {
   computed: {
     ...mapGetters("book", ["books"]),
     isEmpty() {
-      return this.books.length === 0;
+      return !this.books.length;
     }
   },
   methods: {

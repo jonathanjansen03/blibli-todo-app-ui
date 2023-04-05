@@ -12,7 +12,7 @@ export default {
   computed: {
     ...mapGetters("cart", ["cartItems"]),
     isCartEmpty() {
-      return this.cartItems.length === 0;
+      return !this.cartItems.length;
     }
   },
   methods: {
@@ -26,7 +26,7 @@ export default {
     },
     async removeItem(index) {
       this.cartItems[index].book.stock += this.cartItems[index].qty;
-      await this.updateBook({ book: this.cartItems[index].book, isOnlyUpdatingStock: true })
+      await this.updateBook({ book: this.cartItems[index].book, isOnlyUpdatingStock: true });
       await this.removeFromCart(index);
       alert("Book removed from cart.");
     },
