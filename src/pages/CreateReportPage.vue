@@ -61,6 +61,8 @@
 <script src="./js/create-report-page.js"></script>
 
 <style lang="scss" scoped>
+@import "~@blibli/blue-tokens/dist/blue-tokens";
+
 .blu-dropdown { margin-bottom: 2rem; }
 
 .book-list {
@@ -70,7 +72,7 @@
   th {
     text-align: left;
     margin-bottom: 1rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $blu-gray;
   }
 
   td { padding-top: 2rem; }

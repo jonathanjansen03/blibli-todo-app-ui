@@ -22,6 +22,8 @@
 <script src="./js/book-card.js"></script>
 
 <style lang="scss" scoped>
+@import "~@blibli/blue-tokens/dist/blue-tokens";
+
 .books-grid {
   margin-top: 0.5rem;
   width: 100%;
@@ -31,7 +33,7 @@
 .blu-product__btm { padding-bottom: 100px; }
 
 .no-books-msg {
-  color: #ffffff;
+  color: $blu-white;
   text-align: center;
 }
 </style>

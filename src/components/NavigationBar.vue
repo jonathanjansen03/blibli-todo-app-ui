@@ -39,10 +39,10 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid rgba(84, 84, 84, 0.48);
+    border-left: 1px solid $blu-gray-dark;
     width: 100%;
 
-    &.router-link-exact-active { color: hsla(160, 100%, 37%, 1); }
+    &.router-link-exact-active { color: $blu-green-light; }
 
     &:first-of-type { border: 0; }
 
@@ -60,14 +60,14 @@ nav {
   }
 
   .toggle-navbar-btn {
-    color: white;
+    color: $blu-white;
     display: none;
     font-size: 3rem;
   }
 
   .x-btn {
     display: none;
-    color: white;
+    color: $blu-white;
   }
 }
 
@@ -77,7 +77,7 @@ nav {
   width: 15rem;
 
   &:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: rgba($blu-green-dark-1, 0.2);
     border-radius: 0.4em;
   }
 }

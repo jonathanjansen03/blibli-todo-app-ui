@@ -40,6 +40,8 @@
 <script src="./js/cart-page.js"></script>
 
 <style lang="scss" scoped>
+@import "~@blibli/blue-tokens/dist/blue-tokens";
+
 .cart-items {
   width: 100%;
   border-collapse: collapse;
@@ -47,7 +49,7 @@
   th {
     text-align: left;
     margin-bottom: 1rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $blu-gray;
   }
 
   td { padding-top: 2rem; }
