@@ -1,4 +1,4 @@
-import { api } from '@/config'
+import { api, constants } from '@/config'
 import axios from 'axios'
 
 const setBookData = book => {
@@ -50,7 +50,7 @@ const buildUrl = (params) => {
 const state = {
   books: [],
   pagination: {
-    size: 25,
+    size: constants.DEFAULT_PAGE_SIZE,
   },
   params: {
     title: '',

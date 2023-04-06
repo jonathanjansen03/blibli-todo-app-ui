@@ -1,3 +1,7 @@
+const constants = {
+  DEFAULT_PAGE_SIZE: 25
+}
+
 const app = {
   routerName: {
     home: 'home',
@@ -76,6 +80,7 @@ const api = {
     }
   }
 }
+
 // PUT	"gdn-bookstore-api/books/update/{bookId}"		-> update book (object sent via form) Book {title, author, stock, price}
 // **PUT 	"gdn-bookstore-api/books/set-discount/{bookId}"		-> update book's discount (discount value = 0 - 1)
 // GET	"gdn-bookstore-api/transactions"			-> return all transaction
@@ -86,4 +91,4 @@ const api = {
 //
 // GET	"gdn-bookstore-api/transactions?month=<month>&year=<year>	-> return monthly report
 
-export { app, pages, testApi, api }
+export { constants, app, pages, testApi, api }
