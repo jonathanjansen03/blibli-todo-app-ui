@@ -1,5 +1,6 @@
 import { api, constants } from '@/config'
 import axios from 'axios'
+import { buildUrl } from '@/utils'
 
 const setBookData = book => {
   const authors = book.author.split(',')
@@ -26,26 +27,26 @@ const setBookData = book => {
   }
 }
 
-const buildUrl = (params) => {
-  if (!params) {
-    return api.getAllBooksAPI.api
-  }
-
-  const titleParam = params?.title === undefined ? '' :
-    api.searchBookAPI.params.title + params.title
-  const pageParam = params?.page === undefined ? '' :
-    api.searchBookAPI.params.page + params.page
-  let url = api.searchBookAPI.api + titleParam
-
-  if (pageParam !== '') {
-    if (titleParam !== '') {
-      url += '&'
-    }
-    url += pageParam
-  }
-
-  return url
-}
+// const buildUrl = (params) => {
+//   if (!params) {
+//     return api.getAllBooksAPI.api
+//   }
+//
+//   const titleParam = params?.title === undefined ? '' :
+//     api.searchBookAPI.params.title + params.title
+//   const pageParam = params?.page === undefined ? '' :
+//     api.searchBookAPI.params.page + params.page
+//   let url = api.searchBookAPI.api + titleParam
+//
+//   if (pageParam !== '') {
+//     if (titleParam !== '') {
+//       url += '&'
+//     }
+//     url += pageParam
+//   }
+//
+//   return url
+// }
 
 const state = {
   books: [],
