@@ -7,8 +7,8 @@
           <h2 class="about--text-align-left">Background</h2>
           <BliCard class="about--bg-blue" border-radius="8px">
             <BliCardContent class="about--text-align-justify">
-              This is a FrontEnd implementation of our mini project to test our skills and knowledge
-              from our training for the last weeks we have been placed in the Blibli Enticement Squad.
+              This is the front-end implementation of our mini project to test our skills and knowledge
+              from our training for the past few weeks we have been placed in the Blibli Enticement Squad.
               We hope that this website can become a solid foundation for our skills and knowledge to further
               improve our skills and knowledge about the Vue.js and Spring Boot frameworks.
             </BliCardContent>

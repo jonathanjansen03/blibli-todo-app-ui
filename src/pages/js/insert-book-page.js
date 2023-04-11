@@ -69,10 +69,6 @@ export default {
       this.book.price = 0
     },
     async handleSubmit() {
-      if (this.isValidInputs()) {
-        return
-      }
-
       await this.insertBook(this.book)
       this.reset()
     }

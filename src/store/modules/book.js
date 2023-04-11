@@ -84,7 +84,8 @@ const mutations = {
       ...book
     }
   },
-  deleteBook(state, index) {
+  deleteBook(state, bookId) {
+    const index = state.books.findIndex(book => book.id === bookId)
     state.books.splice(index, 1)
   },
   setPagination(state, pagination) {
@@ -126,18 +127,19 @@ const actions = {
       .then(() => {
         alert('Book added successfully!')
       })
-      .catch(err => {
-        alert('Error adding book. Please try again later. ' + err)
+      .catch(res => {
+        console.log('tes', res.response.data)
+        alert('Error adding book. Please try again later. ' + res)
       })
 
     const newBook = setBookData(book)
     commit('insertBook', newBook)
   },
-  deleteBook({ commit, state }, index) {
+  deleteBook({ commit }, book) {
     axios
-      .delete(api.deleteBookAPI.api + state.books[index].id)
+      .delete(api.deleteBookAPI.api + book.id)
       .then(() => {
-        commit('deleteBook', index)
+        commit('deleteBook', book.id)
         alert('Book deleted successfully!')
       })
       .catch(err => {

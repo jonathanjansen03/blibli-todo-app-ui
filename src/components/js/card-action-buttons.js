@@ -32,7 +32,7 @@ export default {
         {
           label: 'Delete Forever',
           handler() {
-            t.deleteBook(t.index)
+            t.deleteBook(t.books[t.index])
             t.visibleModal = false
           },
           color: 'primary',
