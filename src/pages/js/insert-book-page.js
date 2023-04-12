@@ -28,49 +28,42 @@ export default {
         author: '',
         stock: 0,
         price: 0,
-      }
+      },
+      errors: {}
     }
   },
   computed: {
-    isAllFieldFilled() {
-      return this.book.title && this.book.author && this.book.stock && this.book.price
+    isValidTitle() {
+      return !Object.prototype.hasOwnProperty.call(this.errors, 'title')
+    },
+    isValidAuthor() {
+      return !Object.prototype.hasOwnProperty.call(this.errors, 'author')
     },
     isValidStock() {
-      return this.book.stock >= 1 && this.book.stock <= 100
+      return !Object.prototype.hasOwnProperty.call(this.errors, 'stock')
     },
     isValidPrice() {
-      return this.book.price >= 1000 && this.book.price <= 1000000
+      return !Object.prototype.hasOwnProperty.call(this.errors, 'price')
     },
   },
   methods: {
     ...mapActions('book', ['insertBook']),
-    isValidInputs() {
-      if (!this.isAllFieldFilled) {
-        alert('Please fill all the fields.')
-        return false
-      }
-
-      if (!this.isValidStock) {
-        alert('Stock should be between 1 and 100 (inclusive).')
-        return false
-      }
-
-      if (!this.isValidPrice) {
-        alert('Price should be between 1000 and 1000000 (inclusive).')
-        return false
-      }
-
-      return true
-    },
     reset() {
       this.book.title = ''
       this.book.author = ''
       this.book.stock = 0
       this.book.price = 0
+      this.errors = {}
     },
     async handleSubmit() {
-      await this.insertBook(this.book)
-      this.reset()
+      const res = await this.insertBook(this.book)
+
+      if (res.status === 200) {
+        alert('Book added successfully!')
+        this.reset()
+      } else {
+        this.errors = res.data
+      }
     }
   }
 }

@@ -27,27 +27,6 @@ const setBookData = book => {
   }
 }
 
-// const buildUrl = (params) => {
-//   if (!params) {
-//     return api.getAllBooksAPI.api
-//   }
-//
-//   const titleParam = params?.title === undefined ? '' :
-//     api.searchBookAPI.params.title + params.title
-//   const pageParam = params?.page === undefined ? '' :
-//     api.searchBookAPI.params.page + params.page
-//   let url = api.searchBookAPI.api + titleParam
-//
-//   if (pageParam !== '') {
-//     if (titleParam !== '') {
-//       url += '&'
-//     }
-//     url += pageParam
-//   }
-//
-//   return url
-// }
-
 const state = {
   books: [],
   pagination: {
@@ -122,19 +101,19 @@ const actions = {
         alert('Error while fetching books data. Please try again later. ' + err)
       })
   },
-  insertBook({ commit }, book) {
-    axios
-      .post(api.insertBookAPI.api, book)
-      .then(() => {
-        alert('Book added successfully!')
-      })
-      .catch(res => {
-        console.log('tes', res.response.data)
-        alert('Error adding book. Please try again later. ' + res)
-      })
+  async insertBook({ commit }, book) {
+    let response
 
-    const newBook = setBookData(book)
-    commit('insertBook', newBook)
+    try {
+      response = await axios.post(api.insertBookAPI.api, book)
+
+      const newBook = setBookData(book)
+      commit('insertBook', newBook)
+    } catch (e) {
+      response = e.response
+    }
+
+    return response
   },
   deleteBook({ commit }, book) {
     axios

@@ -7,7 +7,7 @@ const buildUrl = (params) => {
 
   let url = api.searchBookAPI.api
 
-  for (let param in params) {
+  for (const param in params) {
     url += api.searchBookAPI.params[param] + params[param] + '&'
   }
 
@@ -15,6 +15,4 @@ const buildUrl = (params) => {
   return url
 }
 
-export {
-  buildUrl
-}
+export { buildUrl }
