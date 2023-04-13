@@ -18,10 +18,10 @@ export default {
   data() {
     return {
       helperMessage: {
-        title: 'Title must be 50 characters max.',
-        author: 'Author must be 50 characters max.',
+        title: 'Title must not be more than 100 characters.',
+        author: 'Author must not be more than 100 characters.',
         stock: 'Stock must be between 1 and 100 (inclusive).',
-        price: 'Price is in IDR and must be between 1000 and 1000000 (inclusive).'
+        price: 'Price is in IDR and must be between 1000 and 100000 (inclusive).',
       },
       book: {
         title: '',
@@ -59,8 +59,8 @@ export default {
       const res = await this.insertBook(this.book)
 
       if (res.status === 200) {
-        alert('Book added successfully!')
         this.reset()
+        alert('Book added successfully!')
       } else {
         this.errors = res.data
       }

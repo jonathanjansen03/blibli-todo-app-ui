@@ -126,13 +126,13 @@ const actions = {
         alert('Error deleting book. Please try again later. ' + err)
       })
   },
-  updateBook({ commit }, { book, isOnlyUpdatingStock }) {
-    commit('updateBook', book)
-
+  async updateBook ({ commit }, { book, isOnlyUpdatingStock }) {
     if (isOnlyUpdatingStock) {
+      commit('updateBook', book)
       return
     }
 
+    let response
     const bookData =  {
       title: book.name,
       author: book.seller.name,
@@ -141,11 +141,14 @@ const actions = {
       discount: book.price.discount / 100
     }
 
-    axios
-      .put(api.updateBookAPI.api + book.id, bookData)
-      .catch(err => {
-        alert('Error updating book. Please try again later. ' + err)
-      })
+    try {
+      response = await axios.put(api.updateBookAPI.api + book.id, bookData)
+      commit('updateBook', book)
+    } catch (e) {
+      response = e.response
+    }
+
+    return response
   },
   setParams({ commit }, params) {
     commit('setParams', params)
