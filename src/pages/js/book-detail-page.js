@@ -30,8 +30,17 @@ export default {
   },
   computed: {
     ...mapGetters('book', ['books']),
+    ...mapGetters('cart', ['cartItems']),
     book() {
       return this.books.find(book => book.id === this.bookId)
+    },
+    stock() {
+      if (!this.cartItems.length) {
+        return this.book.stock
+      }
+
+      const item = this.cartItems.find(item => item.book.id === this.bookId)
+      return item ? this.book.stock - item.qty : this.book.stock
     },
     max() {
       return this.book.stock
@@ -59,16 +68,15 @@ export default {
     focusInput() {
       this.isActive = true
     },
-    async addToCartClick() {
+    addToCartClick() {
       if (!this.qty) {
         alert('Please select quantity!')
         return
       }
 
-      this.book.stock -= this.qty
       this.updateBook({ book: this.book, isOnlyUpdatingStock: true })
-        .then(() => {
-          this.addToCart({ book: this.book, qty: this.qty })
+        .then(async () => {
+          await this.addToCart({ book: this.book, qty: this.qty })
           this.qty = 0
           alert('Book added to cart!')
         })

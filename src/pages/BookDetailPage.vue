@@ -8,7 +8,7 @@
           <h2 class="book-detail__name">{{ book.name }}</h2>
           <p>Author(s): {{ book.seller.list }}</p>
           <p>Price: IDR {{ book.price.final }}</p>
-          <p>Stock: {{ book.stock }}</p>
+          <p>Stock: {{ stock }}</p>
         </div>
         <div class="dev-input-stepper__wrapper">
           <BliInputStepper :isActive="false">
