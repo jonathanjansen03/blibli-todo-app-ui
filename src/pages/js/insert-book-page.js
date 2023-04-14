@@ -21,7 +21,7 @@ export default {
         title: 'Title must not be more than 100 characters.',
         author: 'Author must not be more than 100 characters.',
         stock: 'Stock must be between 1 and 100 (inclusive).',
-        price: 'Price is in IDR and must be between 1000 and 100000 (inclusive).',
+        price: 'Price must be between IDR 1000 and IDR 1000000 (inclusive).',
       },
       book: {
         title: '',
