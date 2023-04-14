@@ -66,11 +66,13 @@ export default {
       }
 
       this.book.stock -= this.qty
-      await this.updateBook({ book: this.book, isOnlyUpdatingStock: true })
-      await this.addToCart({ book: this.book, qty: this.qty})
-
-      this.qty = 0
-      alert('Book added to cart!')
+      this.updateBook({ book: this.book, isOnlyUpdatingStock: true })
+        .then(() => {
+          this.addToCart({ book: this.book, qty: this.qty })
+          this.qty = 0
+          alert('Book added to cart!')
+        })
+        .catch(err => alert('An error has occurred. Please try again later.' + err))
     }
   }
 }
