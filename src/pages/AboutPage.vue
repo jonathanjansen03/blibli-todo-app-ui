@@ -1,22 +1,19 @@
 <template>
   <div class="about blu">
-    <h1 class="about__header about--my-2">About this project</h1>
+    <h1 class="about__header about--my-2">{{ $t('about.title') }}</h1>
     <BliCard border-radius="8px">
       <BliCardContent>
         <div class="about--my-2">
-          <h2 class="about--text-align-left">Background</h2>
+          <h2 class="about--text-align-left">{{ $t('about.background.title') }}</h2>
           <BliCard class="about--bg-blue" border-radius="8px">
             <BliCardContent class="about--text-align-justify">
-              This is the front-end implementation of our mini project to test our skills and knowledge
-              from our training for the past few weeks we have been placed in the Blibli Enticement Squad.
-              We hope that this website can become a solid foundation for our skills and knowledge to further
-              improve our skills and knowledge about the Vue.js and Spring Boot frameworks.
+              {{ $t('about.background.content') }}
             </BliCardContent>
           </BliCard>
         </div>
 
         <div class="about--my-2">
-          <h2 class="about--text-align-left">Members</h2>
+          <h2 class="about--text-align-left">{{ $t('about.members.title') }}</h2>
           <BliCard class="about--bg-orange" border-radius="8px">
             <BliCardContent class="about--text-align-justify">
               <BliList>
@@ -35,18 +32,18 @@
         </div>
 
         <div class="about--my-2">
-          <h2 class="about--text-align-left">Purpose</h2>
+          <h2 class="about--text-align-left">{{ $t('about.purpose.title') }}</h2>
           <BliCard class="about--bg-green" border-radius="8px">
             <BliCardContent class="about--text-align-justify">
               <BliList>
                 <BliListContent>
-                  Skill and Knowledge
+                  {{ $t('about.purpose.content.vue-spring') }}
                 </BliListContent>
                 <BliListContent>
-                  Collaboration and Teamwork
+                  {{ $t('about.purpose.content.collaboration-teamwork') }}
                 </BliListContent>
                 <BliListContent>
-                  Resolve Problem and Search for Solution
+                  {{ $t('about.purpose.content.critical-thinking-probsol') }}
                 </BliListContent>
               </BliList>
             </BliCardContent>

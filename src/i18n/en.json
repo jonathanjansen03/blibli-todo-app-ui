@@ -1,0 +1,20 @@
+{
+  "about": {
+    "title": "About This Project",
+    "background": {
+      "title": "Background",
+      "content": "This is the front-end implementation of our mini project to test our skills and knowledge from our training for the past few weeks we have been placed in the Blibli Enticement Squad. We hope that this website can become a solid foundation for us to further improve our skills and knowledge about the Vue.js and Spring Boot frameworks."
+    },
+    "members": {
+      "title": "Members"
+    },
+    "purpose": {
+      "title": "Developed Skills",
+      "content": {
+        "vue-spring": "Vue.js and Spring Boot frameworks",
+        "collaboration-teamwork": "Collaboration and teamwork",
+        "critical-thinking-probsol": "Critical thinking and problem solving"
+      }
+    }
+  }
+}

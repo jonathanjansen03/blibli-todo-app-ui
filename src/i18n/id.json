@@ -1,0 +1,20 @@
+{
+  "about": {
+    "title": "Tentang Proyek Ini",
+    "background": {
+      "title": "Latar Belakang",
+      "content": "Ini merupakan implementasi front-end untuk mini project kami untuk mengetes kemampuan dan pengetahuan yang kami dapatkan dari masa pembelajaran mandiri selama beberapa minggu terakhir kami ditempatkan di Blibli Enticement Squad. kami berharap bahwa website ini dapat menjadi dasar yang kuat bagi kami untuk mengembangkan kemampuan dan pengetahuan kami terkait framework Vue.js dan Spring Boot lebih lanjut lagi."
+    },
+    "members": {
+      "title": "Anggota"
+    },
+    "purpose": {
+      "title": "Kemampuan yang Dikembangkan",
+      "content": {
+        "vue-spring": "Framework Vue.js dan Spring Boot",
+        "collaboration-teamwork": "Kolaborasi dan kerja sama",
+        "critical-thinking-probsol": "Berpikir kritis dan penyelesaian masalah"
+      }
+    }
+  }
+}
