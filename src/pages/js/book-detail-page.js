@@ -56,10 +56,10 @@ export default {
     ...mapActions('cart', ['addToCart']),
     ...mapActions('book', ['updateBook']),
     minusClick() {
-      this.minusBtnDisabled || (this.qty--)
+      this.minusBtnDisabled || this.qty--
     },
     plusClick() {
-      this.plusBtnDisabled || (this.qty++)
+      this.plusBtnDisabled || this.qty++
     },
     blurInput() {
       this.qty >= this.max && (this.qty = this.max) ?
