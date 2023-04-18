@@ -45,7 +45,7 @@
             </tr>
             <tr>
               <td colspan="3"><h3>Total</h3></td>
-              <td><h3>IDR {{ getTotalPrice() }}</h3></td>
+              <td><h3>IDR {{ totalPrice }}</h3></td>
             </tr>
             </tbody>
           </table>

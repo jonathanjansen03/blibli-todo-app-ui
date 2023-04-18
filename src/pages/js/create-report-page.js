@@ -4,8 +4,10 @@ import { BliCard, BliCardContent } from '@blibli/dls/dist/components/card'
 import { BliDropdown } from '@blibli/dls/dist/components/dropdown'
 import { BliList, BliListItem } from '@blibli/dls/dist/components/list'
 import { mapActions, mapGetters } from 'vuex'
+import UpdateQuery from "@/mixins/update-query";
 
 export default {
+  mixins: [UpdateQuery],
   name: 'CreateReportPage',
   components: {
     BackButton,
@@ -40,24 +42,25 @@ export default {
   },
   computed: {
     ...mapGetters('transaction', ['transactions']),
-    allFieldsAreFilled() {
-      return this.month.value && this.year.value
+    totalPrice() {
+      return this.transactions.reduce((total, item) => {
+        return total + (item.book.price * item.qty)
+      }, 0)
+    },
+    query() {
+      return this.$route.query
     }
   },
   methods: {
     ...mapActions('transaction', ['getTransactions']),
-    async createReport() {
-      if (!this.allFieldsAreFilled) {
-        alert('Please fill all fields.')
-        return
-      }
-      await this.getTransactions({ month: this.month.value, year: this.year.value })
+    createReport() {
+      this.updateQuery({ month: this.month.value, year: this.year.value })
       this.isNotShowingResult = false
-    },
-    getTotalPrice() {
-      return this.transactions.reduce((total, item) => {
-        return total + (item.book.price * item.qty)
-      }, 0)
+    }
+  },
+  watch: {
+    async query() {
+      await this.getTransactions(this.query)
     }
   }
 }
