@@ -1,7 +1,7 @@
 import { api } from "@/config"
 
 const buildUrl = (params) => {
-  if (!params) {
+  if (!params || Object.keys(params).length === 0) {
     return api.getAllBooksAPI.api
   }
 
@@ -11,8 +11,7 @@ const buildUrl = (params) => {
     url += api.searchBookAPI.params[param] + params[param] + '&'
   }
 
-  url = url.slice(0, -1)
-  return url
+  return url.slice(0, -1)
 }
 
 export { buildUrl }

@@ -1,6 +1,7 @@
 import { api, constants } from '@/config'
 import axios from 'axios'
 import { buildUrl } from '@/utils'
+import router from '@/router'
 
 const setBookData = book => {
   const authors = book.author.split(',')
@@ -31,10 +32,6 @@ const state = {
   books: [],
   pagination: {
     size: constants.DEFAULT_PAGE_SIZE,
-  },
-  params: {
-    title: '',
-    page: 0
   }
 }
 
@@ -44,9 +41,6 @@ const getters = {
   },
   pagination(state) {
     return state.pagination
-  },
-  params(state) {
-    return state.params
   }
 }
 
@@ -73,18 +67,13 @@ const mutations = {
       ...state.pagination,
       ...pagination
     }
-  },
-  setParams(state, params) {
-    state.params = {
-      ...state.params,
-      ...params
-    }
   }
 }
 
 const actions = {
-  getBookList({ commit }, params) {
-    const url = buildUrl(params)
+  getBookList({ commit }, queryParams) {
+    const currentQuery = router.currentRoute.query
+    const url = buildUrl({ ...currentQuery, ...queryParams })
 
     axios
       .get(url)
@@ -126,14 +115,14 @@ const actions = {
         alert('Error deleting book. Please try again later. ' + err)
       })
   },
-  async updateBook ({ commit }, { book, isOnlyUpdatingStock }) {
+  async updateBook({ commit }, { book, isOnlyUpdatingStock }) {
     if (isOnlyUpdatingStock) {
       commit('updateBook', book)
       return
     }
 
     let response
-    const bookData =  {
+    const bookData = {
       title: book.name,
       author: book.seller.name,
       stock: book.stock,
@@ -149,9 +138,6 @@ const actions = {
     }
 
     return response
-  },
-  setParams({ commit }, params) {
-    commit('setParams', params)
   }
 }
 
