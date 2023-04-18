@@ -1,7 +1,7 @@
 <template>
   <BliCard>
     <BliCardContent>
-      <BackButton path="/books/manage" />
+      <BackButton />
       <div class="insert-book-form">
         <h1 class="insert-book-form__header">Update Book Form</h1>
 
