@@ -23,6 +23,9 @@ const actions = {
     transactions.forEach(transaction => {
       axios
         .post(api.insertTransactionAPI.api, transaction)
+        .then(() => {
+          alert('Your purchase is being processed and will be delivered soon!')
+        })
         .catch(err => {
           alert('Error making transaction. Please try again later. ' + err)
         })

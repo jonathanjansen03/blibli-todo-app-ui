@@ -1,7 +1,7 @@
 import { BliButton } from '@blibli/dls/dist/components/button'
-import { BliModal, BliModalBody, BliModalHeader } from '@blibli/dls/dist/components/modal'
 import BliIconPlus from '@blibli/blue-icon/dist/icons/Plus'
 import BliIconMinus from '@blibli/blue-icon/dist/icons/Minus'
+import { BliModal, BliModalBody, BliModalHeader } from '@blibli/dls/dist/components/modal'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

@@ -1,5 +1,6 @@
 import { BliButton } from '@blibli/dls/dist/components/button'
 import { BliCard, BliCardContent } from '@blibli/dls/dist/components/card'
+import CartItem from "@/components/CartItem.vue";
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
@@ -7,7 +8,8 @@ export default {
   components: {
     BliButton,
     BliCard,
-    BliCardContent
+    BliCardContent,
+    CartItem
   },
   computed: {
     ...mapGetters('cart', ['cartItems']),
@@ -38,11 +40,6 @@ export default {
         }
       })
       await this.insertTransaction(transactions)
-      this.cartItems.forEach(item => {
-        this.updateBook({ book: item.book, isOnlyUpdatingStock: false })
-      })
-
-      alert('Your purchase is being processed and will be delivered soon!')
       this.emptyCart()
     }
   }

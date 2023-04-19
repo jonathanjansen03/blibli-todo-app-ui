@@ -15,17 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(item, index) in cartItems" :key="item.id">
-          <td>{{ item.book.name }}</td>
-          <td>{{ item.qty }}</td>
-          <td>IDR {{ item.book.price.final }}</td>
-          <td>IDR {{ item.qty * item.book.price.final }}</td>
-          <td class="cart-items__remove-btn">
-            <BliButton color="primary" size="small" @click="removeItem(index)">
-              Remove from Cart
-            </BliButton>
-          </td>
-        </tr>
+        <CartItem v-for="(item, index) in cartItems" :key="item.id" :item="item" @click="removeItem(index)" />
         <tr>
           <td colspan="3"><h3>Total</h3></td>
           <td><h3>IDR {{ getTotalPrice() }}</h3></td>
@@ -53,8 +43,6 @@
   }
 
   td { padding-top: 2rem; }
-
-  &__remove-btn { width: 1%; }
 }
 
 .empty-cart-msg { text-align: center; }
