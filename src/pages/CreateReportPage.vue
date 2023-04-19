@@ -37,11 +37,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in transactions" :key="item.book.id">
-              <td>{{ item.book.title }}</td>
-              <td>{{ item.qty }}</td>
-              <td>IDR {{ item.book.price }}</td>
-              <td>IDR {{ item.qty * item.book.price }}</td>
+            <tr v-for="transaction in transactions" :key="transaction.id">
+              <td>{{ transaction.book.title }}</td>
+              <td>{{ transaction.qty }}</td>
+              <td>IDR {{ transaction.book.price }}</td>
+              <td>IDR {{ transaction.qty * transaction.book.price }}</td>
             </tr>
             <tr>
               <td colspan="3"><h3>Total</h3></td>
